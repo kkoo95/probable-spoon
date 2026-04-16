@@ -34,16 +34,30 @@ With Claude Code, the dev server auto-launches via `.claude/launch.json` (`npx s
 
 All JS imports use ES modules with `?v=N` cache-busting suffixes. External deps load from `esm.sh`. There is no `package.json` or `node_modules`.
 
-## Design system
+## CSS architecture
 
-- CSS custom properties follow Agorapulse DS v2 tokens defined in `index.html :root`
+Styles are split into granular files following ITCSS (Inverted Triangle CSS):
+
+```
+styles/
+  tokens.css              — :root design tokens (colors, spacing, fonts, radii)
+  base.css                — resets, keyframes, @media queries, multi-selector normalizations
+  layout.css              — app shell, topbar, sidebar, workspace chrome
+  components/             — reusable DS-level UI components
+    icons.css, buttons.css, inputs.css, status.css, infobox.css,
+    dialogs.css, ai-notice.css, utilities.css
+  views/                  — feature/page-specific styles
+    session.css, assistant.css, library.css, sources.css, ideas.css,
+    brief.css, posts.css, previews.css, drawer.css, modals.css
+```
+
 - Token naming: `--ref-color-{palette}-{weight}`, `--ref-font-size-{scale}`, `--ref-spacing-{scale}`, `--ref-radius-{scale}`
 - Icons use an inline SVG sprite (`#ap-icons-sprite`) with `<use href="#icon-{name}"/>` convention
 - The source sprite file is `icons-sprite.svg`
 
 ## Key conventions
 
-- `index.html` is the single entry point — all base markup, CSS, and the SVG sprite live here. It's large; search for specific sections rather than reading end-to-end.
+- `index.html` is the single entry point — HTML markup and the SVG sprite live here (~370 lines). CSS is in `styles/`.
 - Mock data is generated in `src/mock-generators.js` (deterministic via seed hashing) and seed data is defined in `src/store.js`.
 - Import paths use `?v=N` suffixes — keep them consistent when editing imports.
 - The `__BIGBET_APP_V2_DISABLED__` flag in `index.html` controls whether a legacy inline script block initializes or the module system takes over.

@@ -1,0 +1,286 @@
+
+      .source-index,
+      .source-card,
+      .empty-state {
+        border: 1px solid var(--border-soft);
+        border-radius: var(--ref-radius-lg);
+        background: var(--ref-color-white);
+      }
+
+
+      .source-index {
+        padding: 18px;
+        height: fit-content;
+        position: sticky;
+        top: var(--ref-spacing-md);
+      }
+
+
+      .source-index h3 {
+        font-size: var(--ref-font-size-sm);
+        font-weight: var(--ref-font-weight-bold);
+        color: var(--ref-color-grey-150);
+        margin-bottom: var(--ref-spacing-xs);
+      }
+
+
+      .source-index-list {
+        display: grid;
+        gap: var(--ref-spacing-xxs);
+      }
+
+
+      .source-index-item {
+        width: 100%;
+        border: 1px solid transparent;
+        border-radius: var(--ref-radius-lg);
+        background: transparent;
+        text-align: left;
+        padding: var(--ref-spacing-xs);
+        cursor: pointer;
+        color: var(--ref-color-grey-100);
+      }
+
+
+      .source-index-item:hover,
+      .source-index-item.active {
+        border-color: var(--ref-color-grey-10);
+        background: #fff;
+      }
+
+
+      .source-index-item .meta {
+        margin-top: var(--ref-spacing-xxxs);
+        color: var(--ref-color-grey-60);
+        font-size: var(--ref-font-size-xs);
+      }
+
+
+      .sources {
+        display: grid;
+        gap: var(--ref-spacing-sm);
+        align-content: start;
+      }
+
+
+      .source-card {
+        overflow: hidden;
+        background: var(--ref-color-white);
+        border-color: var(--border-soft);
+        transition: border-color 180ms ease, background-color 180ms ease;
+      }
+
+
+      .source-card:hover {
+        border-color: var(--ref-color-grey-40);
+      }
+
+
+      .source-card.collapsed .source-header {
+        border-bottom: none;
+      }
+
+
+      .source-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--ref-spacing-sm);
+        padding: 20px;
+        background: var(--ref-color-white);
+        border-bottom: 1px solid var(--border-soft);
+      }
+
+
+      .source-left {
+        display: flex;
+        gap: var(--ref-spacing-sm);
+        min-width: 0;
+        align-items: center;
+      }
+
+
+      .source-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--ref-radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ref-color-orange-10);
+        color: var(--ref-color-orange-150);
+        flex: 0 0 auto;
+        border: 1px solid var(--ref-color-orange-20);
+      }
+
+
+      .source-copy {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+      }
+
+
+      .source-kicker {
+        color: var(--ref-color-grey-60);
+        font-size: 10px;
+        font-weight: var(--ref-font-weight-bold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+
+      .source-title-row,
+      .source-meta-row,
+      .idea-meta-row {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-xxs);
+        flex-wrap: wrap;
+      }
+
+
+      .source-title {
+        font-size: var(--ref-font-size-md);
+        font-weight: var(--ref-font-weight-bold);
+        line-height: var(--ref-font-line-height-lg);
+        color: var(--ref-color-grey-150);
+      }
+
+
+      .source-meta-row {
+        margin-top: var(--ref-spacing-xxxs);
+        color: var(--ref-color-grey-80);
+        font-size: var(--ref-font-size-xs);
+      }
+
+
+      .source-meta-divider {
+        color: var(--ref-color-grey-40);
+      }
+
+
+      .source-signal {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--ref-color-grey-60);
+        font-size: var(--ref-font-size-xs);
+        font-weight: var(--ref-font-weight-bold);
+      }
+
+
+      .source-signal::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+
+      .source-signal.strong {
+        color: var(--ref-color-green-150);
+      }
+
+
+      .source-signal.moderate {
+        color: var(--ref-color-electric-blue-150);
+      }
+
+
+      .source-signal.weak {
+        color: var(--ref-color-grey-60);
+      }
+
+
+      .source-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-xs);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-self: center;
+      }
+
+
+      .source-actions__workflow {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-xxs);
+      }
+
+
+      .source-actions__utility {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-xxs);
+        margin-left: auto;
+      }
+
+
+      .source-inline-toggle {
+        display: inline-flex;
+        align-items: center;
+        height: 28px;
+        border: none;
+        border-radius: var(--ref-radius-lg);
+        background: transparent;
+        color: var(--ref-color-grey-60);
+        padding: 0;
+        cursor: pointer;
+      }
+
+
+      .source-inline-toggle:hover {
+        color: var(--ref-color-grey-100);
+      }
+
+
+      .source-body {
+        padding: 18px 20px 20px;
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+
+      .source-body.collapsed {
+        display: none;
+      }
+
+
+      .source-card:hover,
+      .idea-item:hover {
+        transform: none;
+      }
+
+
+      .source-header {
+        align-items: center;
+        padding: var(--ref-spacing-sm) var(--ref-spacing-xs);
+        background: var(--ref-color-white);
+        border-bottom: 1px solid var(--ref-color-grey-20);
+      }
+
+
+      .source-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--ref-radius-xl);
+        box-shadow: none;
+      }
+
+
+      .source-title {
+        font-size: var(--ref-font-size-sm);
+        line-height: var(--ref-font-line-height-sm);
+      }
+
+
+      .source-actions {
+        flex-wrap: nowrap;
+      }
+
+
+      .source-body {
+        padding: var(--ref-spacing-xxs) var(--ref-spacing-xs) var(--ref-spacing-xs);
+      }

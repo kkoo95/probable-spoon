@@ -91,14 +91,6 @@
       }
 
 
-      .sidebar-session-shell {
-        display: grid;
-        gap: 0;
-        padding-bottom: var(--ref-spacing-sm);
-        border-bottom: 1px solid var(--ref-color-grey-10);
-      }
-
-
       .app-body {
         display: grid;
         grid-template-columns: minmax(380px, 432px) minmax(0, 1fr);

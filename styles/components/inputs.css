@@ -1,0 +1,94 @@
+
+      .brief-inline-textarea {
+        min-height: 92px;
+        padding: var(--ref-spacing-xs);
+        resize: vertical;
+      }
+
+
+      .ap-field,
+      .session-field {
+        display: grid;
+        gap: 6px;
+      }
+
+
+      .ap-field label,
+      .session-field span {
+        font-size: var(--ref-font-size-xs);
+        color: var(--ref-color-grey-80);
+      }
+
+
+      .ap-input,
+      .session-field input {
+        height: 40px;
+        border: 1px solid var(--ref-color-grey-20);
+        border-radius: var(--ref-radius-md);
+        padding: 0 var(--ref-spacing-xs);
+        font-size: var(--ref-font-size-sm);
+        font-family: inherit;
+        color: var(--ref-color-grey-150);
+        background: var(--ref-color-white);
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+
+      .ap-textarea {
+        min-height: 96px;
+        border: 1px solid var(--ref-color-grey-20);
+        border-radius: var(--ref-radius-md);
+        padding: var(--ref-spacing-xs);
+        font-size: var(--ref-font-size-sm);
+        font-family: inherit;
+        line-height: var(--ref-font-line-height-md);
+        color: var(--ref-color-grey-150);
+        background: var(--ref-color-white);
+        resize: vertical;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+
+      .ap-input::placeholder,
+      .ap-textarea::placeholder,
+      .session-field input::placeholder {
+        color: var(--ref-color-grey-40);
+      }
+
+
+      .ap-input:focus,
+      .ap-textarea:focus,
+      .session-field input:focus {
+        border-color: var(--ref-color-electric-blue-100);
+        outline: none;
+        box-shadow: 0 0 0 3px var(--ref-color-electric-blue-10);
+      }
+
+
+      .ap-input.invalid,
+      .ap-textarea.invalid {
+        border-color: var(--ref-color-red-100, #e53535);
+        box-shadow: 0 0 0 3px rgba(229, 53, 53, 0.08);
+      }
+
+
+      .ap-select {
+        height: 40px;
+        border: 1px solid var(--ref-color-grey-20);
+        border-radius: var(--ref-radius-md);
+        padding: 0 var(--ref-spacing-xs);
+        font-size: var(--ref-font-size-sm);
+        font-family: inherit;
+        color: var(--ref-color-grey-150);
+        background: var(--ref-color-grey-05);
+        cursor: pointer;
+        width: 100%;
+        appearance: auto;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+      .ap-select:focus {
+        border-color: var(--ref-color-electric-blue-100);
+        outline: none;
+        box-shadow: 0 0 0 3px var(--ref-color-electric-blue-10);
+      }

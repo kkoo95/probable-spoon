@@ -1,0 +1,176 @@
+
+      /* DS Badge */
+      .ap-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0 2px;
+        height: 16px;
+        border-radius: 2px;
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        font-family: inherit;
+        text-transform: uppercase;
+      }
+
+      .ap-badge.orange {
+        background-color: #FF6726;
+        color: #FFFFFF;
+      }
+
+      .ap-badge.blue {
+        background-color: #E8F4FF;
+        color: #0E72D6;
+      }
+
+
+      .assistant-turn__meta .ap-status {
+        color: var(--ref-color-grey-80);
+      }
+
+
+      .ap-status {
+        --dot-size: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 10px;
+        width: fit-content;
+        height: 26px;
+        border-radius: var(--ref-radius-full);
+        font-size: var(--ref-font-size-xs);
+        line-height: var(--ref-font-line-height-xs);
+        color: var(--ref-color-grey-100);
+        font-weight: var(--ref-font-weight-bold);
+      }
+
+
+      .ap-status .dot {
+        width: var(--dot-size);
+        height: var(--dot-size);
+        border-radius: 50%;
+      }
+
+
+      .ap-status.blue {
+        background: var(--ref-color-electric-blue-10);
+      }
+
+
+      .ap-status.blue .dot {
+        background: var(--ref-color-electric-blue-100);
+      }
+
+
+      .ap-status.green {
+        background: var(--ref-color-green-10);
+      }
+
+
+      .ap-status.green .dot {
+        background: var(--ref-color-green-100);
+      }
+
+
+      .ap-status.orange {
+        background: var(--ref-color-orange-10);
+      }
+
+
+      .ap-status.orange .dot {
+        background: var(--ref-color-orange-100);
+      }
+
+
+      .ap-status.red {
+        background: var(--ref-color-red-10);
+      }
+
+
+      .ap-status.red .dot {
+        background: var(--ref-color-red-100);
+      }
+
+
+      .ap-status.grey {
+        background: var(--ref-color-grey-05);
+      }
+
+
+      .ap-status.grey .dot {
+        background: var(--ref-color-grey-60);
+      }
+
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 999px;
+        padding: 6px 10px;
+        border: 1px solid transparent;
+        font-size: var(--ref-font-size-xs);
+        font-weight: var(--ref-font-weight-bold);
+        line-height: 1;
+      }
+
+
+      .pill.processed {
+        background: var(--ref-color-green-10);
+        color: var(--ref-color-green-150);
+      }
+
+
+      .pill.processing {
+        background: var(--ref-color-electric-blue-10);
+        color: var(--ref-color-electric-blue-150);
+      }
+
+
+      .pill.failed {
+        background: var(--ref-color-red-10);
+        color: var(--ref-color-red-150);
+      }
+
+
+      .pill.strong {
+        background: var(--ref-color-green-10);
+        color: var(--ref-color-green-150);
+        border-color: var(--ref-color-green-20);
+      }
+
+
+      .pill.moderate {
+        background: var(--ref-color-yellow-10);
+        color: var(--ref-color-yellow-150);
+        border-color: var(--ref-color-yellow-20);
+      }
+
+
+      .pill.weak {
+        background: var(--ref-color-grey-05);
+        color: var(--ref-color-grey-80);
+        border-color: var(--ref-color-grey-10);
+      }
+
+
+      .pill.high {
+        background: var(--ref-color-orange-10);
+        color: var(--ref-color-orange-150);
+        border-color: var(--ref-color-orange-20);
+      }
+
+
+      .pill.medium {
+        background: var(--ref-color-electric-blue-10);
+        color: var(--ref-color-electric-blue-150);
+        border-color: var(--ref-color-electric-blue-20);
+      }
+
+
+      .pill.low {
+        background: var(--ref-color-grey-05);
+        color: var(--ref-color-grey-80);
+        border-color: var(--ref-color-grey-10);
+      }

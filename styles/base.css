@@ -30,22 +30,6 @@
       }
 
 
-      /* DS Badge */
-      .ap-badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 0 2px;
-        height: 16px;
-        border-radius: 2px;
-        white-space: nowrap;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px;
-        font-family: inherit;
-        text-transform: uppercase;
-      }
-
-
       .assistant-panel.is-disabled .assistant-prompt,
       .assistant-panel.is-disabled .source-type-tab,
       .assistant-panel.is-disabled .assistant-input,
@@ -113,17 +97,6 @@
         to {
           transform: rotate(360deg);
         }
-      }
-
-
-      /* DS Dialog classes */
-      .ap-dialog {
-        background-color: var(--ref-color-white);
-        border-radius: var(--ref-radius-md);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        position: relative;
       }
 
 

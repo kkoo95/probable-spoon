@@ -1,0 +1,130 @@
+
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(33, 46, 68, 0.26);
+        display: none;
+        z-index: 50;
+      }
+
+
+      .modal-backdrop.open {
+        display: block;
+      }
+
+
+      .ap-dialog.session-modal,
+      .ap-dialog.bug-report-modal {
+        position: fixed;
+      }
+
+
+      .session-modal .ap-dialog-content {
+        overflow-y: auto;
+      }
+
+
+      /* DS Dialog classes */
+      .ap-dialog {
+        background-color: var(--ref-color-white);
+        border-radius: var(--ref-radius-md);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .ap-dialog-header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ref-spacing-xxxs);
+        padding: var(--ref-spacing-lg) var(--ref-spacing-lg) 0;
+        padding-right: 64px;
+      }
+
+      .ap-dialog-title {
+        font-size: var(--ref-font-size-xxl);
+        font-weight: var(--ref-font-weight-bold);
+        line-height: var(--ref-font-line-height-xl);
+        color: var(--ref-color-grey-100);
+        margin: 0;
+      }
+
+      .ap-dialog-subtitle {
+        font-size: var(--ref-font-size-md);
+        line-height: var(--ref-font-line-height-lg);
+        color: var(--ref-color-grey-80);
+        margin: 0;
+      }
+
+      .ap-dialog-description {
+        font-size: var(--ref-font-size-md);
+        line-height: var(--ref-font-line-height-lg);
+        color: var(--ref-color-grey-80);
+        margin: 0;
+      }
+
+      .ap-dialog-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ref-spacing-md);
+        padding: var(--ref-spacing-md) var(--ref-spacing-lg);
+      }
+
+      .ap-dialog-footer {
+        border-top: 1px solid var(--ref-color-grey-10);
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-sm);
+        padding: var(--ref-spacing-sm) var(--ref-spacing-lg);
+      }
+
+      .ap-dialog-footer-left {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-sm);
+      }
+
+      .ap-dialog-footer-right {
+        display: flex;
+        align-items: center;
+        gap: var(--ref-spacing-sm);
+        flex: 1;
+        justify-content: flex-end;
+      }
+
+      .ap-dialog-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        border-radius: var(--ref-radius-md);
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--ref-color-grey-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ap-dialog-close:hover {
+        background: var(--ref-color-grey-05);
+      }
+
+      .bug-report-modal .ap-dialog-content {
+        flex: 1;
+        overflow-y: auto;
+      }
+
+      .feedback-modal .ap-dialog-content { flex: 1; overflow-y: auto; }
+
+
+      .feedback-modal.success .ap-dialog-content,
+      .feedback-modal.success .ap-dialog-footer { display: none; }
+
+
+      .bug-report-modal.success .ap-dialog-content,
+      .bug-report-modal.success .ap-dialog-footer {
+        display: none;
+      }
