@@ -255,7 +255,7 @@
       .source-type-tab {
         border: 1px solid var(--ref-color-grey-10);
         border-radius: 999px;
-        background: #fff;
+        background: var(--ref-color-white);
         min-height: 28px;
         padding: 0 var(--ref-spacing-xxs);
         color: var(--ref-color-grey-80);

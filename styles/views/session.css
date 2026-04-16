@@ -138,7 +138,7 @@
         width: 100%;
         border: 1px solid var(--ref-color-grey-10);
         border-radius: var(--ref-radius-sm);
-        background: #fff;
+        background: var(--ref-color-white);
         box-shadow:
           0 4px 25px rgba(52, 69, 99, 0.15),
           0 4px 6px rgba(52, 69, 99, 0.15);
@@ -166,7 +166,7 @@
         height: 36px;
         border: 1px solid var(--ref-color-grey-20);
         border-radius: var(--ref-radius-sm);
-        background: #fff;
+        background: var(--ref-color-white);
         padding: 0 var(--ref-spacing-xs);
         color: var(--ref-color-grey-100);
         display: flex;
@@ -224,7 +224,7 @@
         padding: var(--ref-spacing-xxs) var(--ref-spacing-sm);
         border-radius: 0;
         border: none;
-        background: #fff;
+        background: var(--ref-color-white);
         transition: background 180ms ease, border-color 180ms ease;
       }
 
@@ -335,7 +335,7 @@
 
 
       .workflow-tab.active {
-        background: #fff;
+        background: var(--ref-color-white);
         color: var(--ref-color-electric-blue-150);
         font-weight: var(--ref-font-weight-bold);
         box-shadow: 0 6px 18px rgba(33, 46, 68, 0.08);
@@ -344,7 +344,7 @@
 
       .workflow-tab.active:hover,
       .workflow-tab.active:focus-visible {
-        background: #fff;
+        background: var(--ref-color-white);
         color: var(--ref-color-electric-blue-150);
         box-shadow: 0 6px 18px rgba(33, 46, 68, 0.08);
       }

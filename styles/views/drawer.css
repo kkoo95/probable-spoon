@@ -25,7 +25,7 @@
         top: calc(100% + 8px);
         right: 0;
         min-width: 220px;
-        background: #fff;
+        background: var(--ref-color-white);
         border-radius: var(--ref-radius-lg);
         box-shadow: var(--shadow-panel);
         border: 1px solid var(--ref-color-grey-10);

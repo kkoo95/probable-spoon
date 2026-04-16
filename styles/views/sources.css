@@ -45,7 +45,7 @@
       .source-index-item:hover,
       .source-index-item.active {
         border-color: var(--ref-color-grey-10);
-        background: #fff;
+        background: var(--ref-color-white);
       }
 
 
