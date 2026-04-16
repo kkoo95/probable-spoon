@@ -409,7 +409,7 @@
 
 
 
-      .linkedin-preview__image-cta .agp-icon {
+      .linkedin-preview__image-cta [class^="ap-icon-"] {
         width: 13px;
         height: 13px;
         min-width: 13px;

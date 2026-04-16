@@ -81,35 +81,35 @@ document.body.append(sessionModalBackdrop, sessionModal, bugReportBackdrop, bugR
 
 const icons = {
   // sprite-based icons — paths live in #ap-icons-sprite in index.html
-  sparkles:      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>',
-  search:        '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-search"/></svg></span>',
-  filePdf:       '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-file--pdf"/></svg></span>',
-  link:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-link"/></svg></span>',
-  pin:           '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-pin"/></svg></span>',
-  chevronDown:   '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-chevron-down"/></svg></span>',
-  chevronUp:     '<span class="agp-icon" aria-hidden="true" style="transform:rotate(180deg)"><svg viewBox="0 0 16 16"><use href="#icon-chevron-down"/></svg></span>',
-  more:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-more"/></svg></span>',
-  library:       '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-folder"/></svg></span>',
-  upload:        '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-upload"/></svg></span>',
-  plus:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-plus"/></svg></span>',
-  trash:         '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-trash"/></svg></span>',
-  pencil:        '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-pen"/></svg></span>',
-  close:         '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-close"/></svg></span>',
-  error:         '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-error"/></svg></span>',
-  fileText:      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-file--text"/></svg></span>',
-  headset:       '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-headset"/></svg></span>',
-  info:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-info"/></svg></span>',
-  question:      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-question"/></svg></span>',
-  note:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-note"/></svg></span>',
-  cog:           '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-cog"/></svg></span>',
-  megaphone:     '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-megaphone"/></svg></span>',
-  multipleUsers: '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-multiple-users"/></svg></span>',
-  calendar:      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-calendar"/></svg></span>',
-  copy:          '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-copy"/></svg></span>',
-  socialLike:    '<span class="social-action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-thumb-up"/></svg></span>',
-  socialComment: '<span class="social-action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-single-chat-bubble"/></svg></span>',
-  socialShare:   '<span class="social-action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-repost"/></svg></span>',
-  socialSend:    '<span class="social-action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-paper-plane"/></svg></span>',
+  sparkles:      '<i class="ap-icon-sparkles"></i>',
+  search:        '<i class="ap-icon-search"></i>',
+  filePdf:       '<i class="ap-icon-file--pdf"></i>',
+  link:          '<i class="ap-icon-link"></i>',
+  pin:           '<i class="ap-icon-pin"></i>',
+  chevronDown:   '<i class="ap-icon-chevron-down"></i>',
+  chevronUp:     '<i class="ap-icon-chevron-down"></i>',
+  more:          '<i class="ap-icon-more"></i>',
+  library:       '<i class="ap-icon-folder"></i>',
+  upload:        '<i class="ap-icon-upload"></i>',
+  plus:          '<i class="ap-icon-plus"></i>',
+  trash:         '<i class="ap-icon-trash"></i>',
+  pencil:        '<i class="ap-icon-pen"></i>',
+  close:         '<i class="ap-icon-close"></i>',
+  error:         '<i class="ap-icon-error"></i>',
+  fileText:      '<i class="ap-icon-file--text"></i>',
+  headset:       '<i class="ap-icon-headset"></i>',
+  info:          '<i class="ap-icon-info"></i>',
+  question:      '<i class="ap-icon-question"></i>',
+  note:          '<i class="ap-icon-note"></i>',
+  cog:           '<i class="ap-icon-cog"></i>',
+  megaphone:     '<i class="ap-icon-megaphone"></i>',
+  multipleUsers: '<i class="ap-icon-multiple-users"></i>',
+  calendar:      '<i class="ap-icon-calendar"></i>',
+  copy:          '<i class="ap-icon-copy"></i>',
+  socialLike:    '<span class="social-action-icon" aria-hidden="true"><i class="ap-icon-thumb-up"></i></span>',
+  socialComment: '<span class="social-action-icon" aria-hidden="true"><i class="ap-icon-single-chat-bubble"></i></span>',
+  socialShare:   '<span class="social-action-icon" aria-hidden="true"><i class="ap-icon-repost"></i></span>',
+  socialSend:    '<span class="social-action-icon" aria-hidden="true"><i class="ap-icon-paper-plane"></i></span>',
   // keep inline — gradient fill cannot be driven by CSS color token
   sparklesMermaid:
     '<span class="agp-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><linearGradient id="sparklesMermaidGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#578fff"/><stop offset="100%" stop-color="#df52ff"/></linearGradient></defs><path fill="url(#sparklesMermaidGradient)" d="M11.984 7.2H12a.806.806 0 0 0 .8-.76c.072-1.36.68-1.64 1.584-1.64h.016c.44 0 .8-.352.8-.792a.796.796 0 0 0-.784-.808c-1.168-.024-1.616-.472-1.616-1.6 0-.44-.36-.8-.8-.8s-.8.36-.8.8c0 1.136-.456 1.584-1.608 1.6a.81.81 0 0 0-.792.808c0 .44.36.792.8.792 1.16 0 1.592.44 1.6 1.608a.803.803 0 0 0 .784.792"/><path fill="url(#sparklesMermaidGradient)" fill-rule="evenodd" d="M6.384 15.2H6.4a.806.806 0 0 0 .8-.76c.144-2.792 1.368-4.04 3.968-4.04h.032c.416.032.8-.352.8-.792a.8.8 0 0 0-.784-.808c-2.784-.064-4.024-1.296-4.016-4 0-.44-.36-.8-.8-.8s-.8.36-.8.8c-.008 2.728-1.24 3.96-4.008 4a.81.81 0 0 0-.792.808c0 .44.36.792.8.792h.008c2.736 0 3.96 1.24 3.992 4.008a.803.803 0 0 0 .784.792m.056-4.064a4.2 4.2 0 0 0-1.512-1.552l.008-.008A4.25 4.25 0 0 0 6.4 8.12c.376.616.88 1.112 1.52 1.48a4.4 4.4 0 0 0-1.48 1.536" clip-rule="evenodd"/></svg></span>',
@@ -694,7 +694,7 @@ function LinkedInPostPreview(post) {
     (post.imageUrl
       ? '<img class="linkedin-preview__attachment" src="' + escapeHtml(post.imageUrl) + '" alt="Generated image" />'
       : '<button type="button" class="linkedin-preview__image-cta" data-open-generate-image="' + post.id + '">' +
-        '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>' +
+        '<i class="ap-icon-sparkles"></i>' +
         'Generate an image' +
         '</button>') +
     '</div>' +
@@ -713,11 +713,11 @@ function LinkedInPostPreview(post) {
 }
 
 const xIcons = {
-  reply:    '<svg class="x-action-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="#icon-reply"/></svg>',
-  repost:   '<svg class="x-action-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="#icon-repost"/></svg>',
-  like:     '<svg class="x-action-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="#icon-heart"/></svg>',
-  views:    '<svg class="x-action-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="#icon-bar-graph"/></svg>',
-  bookmark: '<svg class="x-action-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="#icon-bookmark"/></svg>',
+  reply:    '<i class="ap-icon-reply"></i>',
+  repost:   '<i class="ap-icon-repost"></i>',
+  like:     '<i class="ap-icon-heart"></i>',
+  views:    '<i class="ap-icon-bar-graph"></i>',
+  bookmark: '<i class="ap-icon-bookmark"></i>',
 };
 
 function TwitterPostPreview(post) {
@@ -922,7 +922,7 @@ function messageMarkup(message) {
       '<div class="ai-notice">' +
       '<button class="ai-notice__toggle" type="button" aria-expanded="false">' +
       '<span class="ai-notice__label">' + escapeHtml(message.meta) + '</span>' +
-      '<span class="ai-notice__chevron agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-chevron-down" style="transform:rotate(-90deg);transform-origin:center"/></svg></span>' +
+      '<span class="ai-notice__chevron"><i class="ap-icon-chevron-down"></i></span>' +
       '</button>' +
       '<div class="ai-notice__detail">' +
       '<span class="ai-notice__text">' + escapeHtml(message.text) + '</span>' +
@@ -1569,7 +1569,7 @@ function renderPostsRail(session, ui) {
     '" data-posts-rail-item="' + item.id +
     '" data-posts-rail-kind="' + item.kind +
     '" data-posts-rail-value="' + (item.value || "") + '">' +
-    (item.icon ? '<span class="agp-icon posts-rail__item-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-' + item.icon + '"/></svg></span>' : '') +
+    (item.icon ? '<i class="ap-icon-' + item.icon + ' posts-rail__item-icon" aria-hidden="true"></i>' : '') +
     '<span class="posts-rail__item-label">' + escapeHtml(item.label) + "</span>" +
     '<span class="posts-rail__item-count">' + item.count + "</span>" +
     "</button>";
@@ -1642,10 +1642,10 @@ function renderPostsSelectionBar(session, ui) {
       disabled: disableSchedule,
     }) +
     '<button type="button" class="ap-icon-button red" data-delete-selected-posts="true" aria-label="Delete selected posts" title="Delete selected">' +
-    '<span class="agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-trash"/></svg></span>' +
+    '<i class="ap-icon-trash"></i>' +
     '</button>' +
     '<button type="button" class="ap-icon-button" data-clear-post-selection="true" aria-label="Clear selection" title="Clear selection">' +
-    '<span class="agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-close"/></svg></span>' +
+    '<i class="ap-icon-close"></i>' +
     '</button>' +
     '</div>'
   );

@@ -117,7 +117,7 @@ const STYLES = `
     cursor: default;
   }
 
-  .gen-derive-btn .agp-icon {
+  .gen-derive-btn [class^="ap-icon-"] {
     width: 12px;
     height: 12px;
     min-width: 12px;
@@ -392,7 +392,7 @@ function renderBody() {
       '<button type="button" class="gen-derive-btn" id="genDeriveBtn"' + (_promptLoading ? ' disabled' : '') + '>' +
       (_promptLoading
         ? '<span class="gen-image-spinner"></span>Deriving from post content…'
-        : '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>' +
+        : '<i class="ap-icon-sparkles"></i>' +
           'Re-derive from post content') +
       '</button>' +
       '</div>' +
@@ -442,11 +442,11 @@ function renderBody() {
       summaryTagsHtml() +
       '<div class="gen-image-result-actions">' +
       '<button type="button" class="ap-button ghost grey" id="genImageRegenerate">' +
-      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-refresh"/></svg></span>' +
+      '<i class="ap-icon-refresh"></i>' +
       'Regenerate' +
       '</button>' +
       '<button type="button" class="ap-button ghost grey" id="genImageEdit">' +
-      '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-pencil"/></svg></span>' +
+      '<i class="ap-icon-pencil"></i>' +
       'Edit options' +
       '</button>' +
       '<button type="button" class="ap-button primary orange" id="genImageUse">Use this image</button>' +
@@ -466,7 +466,7 @@ function footerIdleHtml() {
     '<div class="ap-dialog-footer-right">' +
     '<button type="button" class="ap-button ghost grey" id="genImageCancel">Cancel</button>' +
     '<button type="button" class="ap-button primary orange" id="genImageGenerate">' +
-    '<span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>' +
+    '<i class="ap-icon-sparkles"></i>' +
     'Generate' +
     '</button>' +
     '</div>'
@@ -611,7 +611,7 @@ function ensureModal() {
       <h3 class="ap-dialog-title" id="generateImageModalTitle">Generate an image</h3>
     </div>
     <button class="ap-dialog-close" type="button" id="generateImageModalClose" aria-label="Close">
-      <span class="agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-close"/></svg></span>
+      <i class="ap-icon-close"></i>
     </button>
     <div class="ap-dialog-content" id="genImageBody"></div>
     <div class="ap-dialog-footer" id="genImageFooter"></div>

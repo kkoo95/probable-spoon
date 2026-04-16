@@ -123,7 +123,7 @@ const STYLES = `
     gap: 4px;
   }
 
-  .schedule-row__best-time .agp-icon {
+  .schedule-row__best-time [class^="ap-icon-"] {
     width: 12px;
     height: 12px;
     min-width: 12px;
@@ -314,7 +314,7 @@ function postRowHtml(post) {
         Finding…
        </button>`
     : `<button type="button" class="ap-button stroked grey schedule-row__best-time" data-best-time="${escapeHtml(post.id)}">
-        <span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>
+        <i class="ap-icon-sparkles"></i>
         Best time
        </button>`;
 
@@ -388,14 +388,14 @@ function buildModalHtml() {
       <p class="ap-dialog-description" id="scheduleModalDesc"></p>
     </div>
     <button class="ap-dialog-close" type="button" id="scheduleModalClose" aria-label="Close">
-      <span class="agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-close"/></svg></span>
+      <i class="ap-icon-close"></i>
     </button>
     <div class="ap-dialog-content" id="scheduleModalBody"></div>
     <div class="ap-dialog-footer">
       <div class="ap-dialog-footer-right">
         <button type="button" class="ap-button ghost grey" id="scheduleModalCancel">Cancel</button>
         <button type="button" class="ap-button primary orange" id="scheduleModalSubmit" disabled>
-          <span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-calendar"/></svg></span>
+          <i class="ap-icon-calendar"></i>
           Schedule
         </button>
       </div>

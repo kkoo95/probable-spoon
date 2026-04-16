@@ -541,7 +541,7 @@
 
 
 
-      .strategy-section__heading .agp-icon {
+      .strategy-section__heading [class^="ap-icon-"] {
         color: var(--ref-color-grey-60);
         margin-top: 2px;
       }

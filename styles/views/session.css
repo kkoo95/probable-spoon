@@ -486,13 +486,13 @@
 
 
 
-      .session-panel__search-field .agp-icon {
+      .session-panel__search-field [class^="ap-icon-"] {
         color: var(--ref-color-grey-60);
       }
 
 
 
-      .workflow-tab .agp-icon {
+      .workflow-tab [class^="ap-icon-"] {
         width: 16px;
         height: 16px;
         min-width: 16px;

@@ -75,7 +75,7 @@
 
 
 
-      .empty-state .icon .agp-icon {
+      .empty-state .icon [class^="ap-icon-"] {
         width: 28px;
         height: 28px;
         min-width: 28px;
