@@ -449,7 +449,7 @@
 
       .workflow-tab {
         height: 48px;
-        padding: 0 var(--ref-spacing-sm);
+        padding: 0 var(--ref-spacing-xs);
         border-radius: 0;
         color: var(--ref-color-grey-100);
       }
