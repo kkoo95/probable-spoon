@@ -326,20 +326,21 @@ function postRowHtml(post) {
         ${bestTimeBtn}
       </div>
       <div class="schedule-row__fields">
-        <div class="ap-field schedule-row__date-field">
+        <div class="ap-form-field schedule-row__date-field">
           <label for="sched-date-${escapeHtml(post.id)}">Date</label>
-          <input
-            class="ap-input"
-            type="date"
-            id="sched-date-${escapeHtml(post.id)}"
-            data-sched-date="${escapeHtml(post.id)}"
-            value="${escapeHtml(s.date || '')}"
-          />
+          <div class="ap-input-group">
+            <input
+              type="date"
+              id="sched-date-${escapeHtml(post.id)}"
+              data-sched-date="${escapeHtml(post.id)}"
+              value="${escapeHtml(s.date || '')}"
+            />
+          </div>
         </div>
-        <div class="ap-field schedule-row__time-field">
+        <div class="ap-form-field schedule-row__time-field">
           <label for="sched-time-${escapeHtml(post.id)}">Time</label>
           <select
-            class="ap-select"
+            class="ap-native-select"
             id="sched-time-${escapeHtml(post.id)}"
             data-sched-time="${escapeHtml(post.id)}"
           >
