@@ -41,8 +41,10 @@ src/
     bug-report.js        # bug report + capture screenshot
     schedule.js          # planifier des posts
     generate-image.js    # génération d'image AI
-ds/                    # Design System Agorapulse (CSS, fonts, icônes)
+ds/                    # Design System Agorapulse (généré par `npm install` — ne pas éditer)
 styles/                # Styles app : tokens, base, layout, composants, vues
+scripts/
+  sync-ds.mjs          # Copie le DS depuis node_modules/ vers ds/ (lancé via postinstall)
 ```
 
 ## Périmètre couvert
