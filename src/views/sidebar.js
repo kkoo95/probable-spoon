@@ -285,18 +285,16 @@ export function renderSidebar(state, session, ui) {
     return;
   }
 
-  const messages = session.messages.length
-    ? session.messages
-    : [
-        {
-          id: "starter",
-          role: "assistant",
-          meta: "AI copilot",
-          text: "I can pressure-test ideas, compare angles, and draft the next post for " + session.name + ".",
-          status: "ready",
-          ideaId: session.sources.flatMap((source) => source.ideas).find((idea) => idea.pinned)?.id || null,
-        },
-      ];
+  const hasConversation = session.messages.some((m) => m.role === "user" || m.role === "assistant");
+  const starter = {
+    id: "starter",
+    role: "assistant",
+    meta: "AI copilot",
+    text: "I can pressure-test ideas, compare angles, and draft the next post for " + session.name + ".",
+    status: "ready",
+    ideaId: session.sources.flatMap((source) => source.ideas).find((idea) => idea.pinned)?.id || null,
+  };
+  const messages = hasConversation ? session.messages : [starter, ...session.messages];
 
   assistantThread.innerHTML = messages.map(messageMarkup).join("");
   assistantPromptDeck.innerHTML = assistantPromptList(ui).join("");
