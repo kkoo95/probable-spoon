@@ -98,9 +98,11 @@ ds/
 ```
 styles/
   tokens.css             — app-specific tokens only (surface aliases, radius, mermaid)
-  base.css               — resets, keyframes, @media queries
+  base.css               — resets, keyframes, app-wide DS token groupings
   layout.css             — app shell, topbar, sidebar, workspace chrome
+  ds-patches.css         — patches on top of DS component classes
   app-components.css     — custom components with no DS equivalent (ai-notice, search, toolbar, etc.)
+  responsive.css         — all @media / @container queries (loads last)
   views/                 — feature/page-specific styles
     session.css, assistant.css, library.css, sources.css, ideas.css,
     brief.css, posts.css, previews.css, drawer.css, modals.css
@@ -122,7 +124,7 @@ All `.ap-*` components come from the DS (`ds/css-ui/index.css`). Available: butt
 
 ## Key conventions
 
-- `index.html` is the single entry point — HTML markup only (~380 lines). CSS is in `styles/` and `ds/`.
+- `index.html` is the single entry point — HTML markup only (~210 lines). CSS is in `styles/` and `ds/`.
 - Mock data is generated in `src/mock-generators.js` (deterministic via seed hashing) and seed data is defined in `src/store.js`.
 - Import paths use `?v=N` suffixes — keep them consistent when editing imports.
 
