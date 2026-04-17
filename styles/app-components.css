@@ -320,3 +320,17 @@
   animation: pulse 1.2s linear infinite;
   margin-top: 10px;
 }
+
+.pin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xxxs);
+  border-radius: var(--ref-radius-full);
+  padding: 0 var(--ref-spacing-xxs);
+  background: var(--ref-color-yellow-10);
+  color: var(--ref-color-yellow-150);
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+  min-height: 24px;
+  line-height: var(--ref-font-line-height-xs);
+}

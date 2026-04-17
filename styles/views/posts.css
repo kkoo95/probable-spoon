@@ -376,9 +376,3 @@
   min-width: 0;
 }
 
-.state-banner,
-.idea-intro,
-.selection-bar {
-  border-radius: var(--ref-radius-lg);
-  padding: var(--ref-spacing-xs);
-}

@@ -189,16 +189,6 @@
   font-weight: var(--ref-font-weight-bold);
 }
 
-.idea-intro,
-.selection-bar {
-  border-radius: var(--ref-radius-md);
-}
-
-.idea-intro {
-  padding: 0 0 var(--ref-spacing-xs);
-  border-bottom: 1px solid var(--ref-color-grey-10);
-}
-
 .idea-list {
   margin-top: var(--ref-spacing-xs);
 }
