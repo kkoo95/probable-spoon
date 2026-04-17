@@ -72,7 +72,11 @@ This project is built on the official Agorapulse Design System (`@agorapulse/ui-
    - grep `ds/desktop_variables.css` for `--ref-*` / `--sys-*`.
    - **Never** write `padding: 20px` when `var(--ref-spacing-sm)` exists. Never write `#fff` when `var(--ref-color-white)` exists.
 4. **Prefer `--sys-*` over `--ref-*`** when a semantic token exists (text colors, border colors, component states).
-5. **Custom CSS only if nothing in the DS fits** — put it in `styles/app-components.css` (custom components) or a specific `styles/views/*.css` (page-specific). Never redeclare a `.ap-*` class with overrides — it defeats the DS.
+5. **Custom CSS only if nothing in the DS fits** — pick the right file:
+   - `styles/ds-patches.css` when you need to **extend** a DS class with a missing variant (e.g. `.ap-status.yellow` because the DS only ships orange/red/green/blue/grey) or add a primitive the DS forgot (e.g. `.modal-backdrop`). This file is the only legitimate place to touch `.ap-*` selectors, and it should shrink as the DS evolves.
+   - `styles/app-components.css` for app-wide custom components with no DS equivalent (`.ai-notice`, `.search`, `.toolbar`, ...).
+   - `styles/views/<page>.css` for page-specific styling.
+   - **Never** redeclare a `.ap-*` class with overrides outside `ds-patches.css` — it defeats the DS and flips the cascade silently.
 6. **Validate before committing** — run `validate_css` on the ds-css MCP to catch hardcoded values that should be tokens.
 
 ### Anti-patterns to avoid
