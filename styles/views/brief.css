@@ -472,3 +472,9 @@
   color: var(--ref-color-grey-60);
   margin-top: 2px;
 }
+
+.brief-inline-textarea {
+  min-height: 92px;
+  padding: var(--ref-spacing-xs);
+  resize: vertical;
+}

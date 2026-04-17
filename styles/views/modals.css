@@ -333,3 +333,39 @@
 .bug-report-modal.success .ap-dialog-footer {
   display: none;
 }
+
+/* ── Session modal form field (not a DS component) ── */
+
+.session-field {
+  display: grid;
+  gap: 6px;
+}
+
+.session-field span {
+  font-size: var(--ref-font-size-xs);
+  color: var(--ref-color-grey-80);
+}
+
+.session-field input {
+  height: 40px;
+  border: 1px solid var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-md);
+  padding: 0 var(--ref-spacing-xs);
+  font-size: var(--ref-font-size-sm);
+  font-family: inherit;
+  color: var(--ref-color-grey-150);
+  background: var(--ref-color-white);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.session-field input::placeholder {
+  color: var(--ref-color-grey-40);
+}
+
+.session-field input:focus {
+  border-color: var(--ref-color-electric-blue-100);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ref-color-electric-blue-10);
+}
