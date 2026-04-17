@@ -6,15 +6,16 @@ this is a cleanup backlog.
 
 ## Summary
 
-| Kind                       | Count | Status                                                                              |
-| -------------------------- | ----- | ----------------------------------------------------------------------------------- |
-| Cross-file duplicates      | 3     | **Fixed** — removed from `app-components.css`                                       |
-| **Cross-file conflicts**   | 24    | **Fixed** — view-file early rules cleaned; base.css DS tokens win                   |
-| Within-file "conflicts"    | 44    | **Fixed** — merged DS-migration pairs across 9 files                                |
-| Missing CSS (JS → no rule) | 4     | **Fixed** (see commit `7c6a688`)                                                    |
-| Lost during split          | 5     | **Fixed** — `.pin-chip` → `.ap-status.yellow`                                       |
-| Broken media-query cascade | 1     | **Fixed** — media queries moved to `responsive.css` (loads last)                    |
-| DS token refinement        | —     | Partial — raw `999px`/`4px`/`24px`/`28px` swapped; `--ref-*` → `--sys-*` still open |
+| Kind                        | Count | Status                                                                                                       |
+| --------------------------- | ----- | ------------------------------------------------------------------------------------------------------------ |
+| Cross-file duplicates       | 3     | **Fixed** — removed from `app-components.css`                                                                |
+| **Cross-file conflicts**    | 24    | **Fixed** — view-file early rules cleaned; base.css DS tokens win                                            |
+| Within-file "conflicts"     | 44    | **Fixed** — merged DS-migration pairs across 9 files                                                         |
+| Missing CSS (JS → no rule)  | 4     | **Fixed** (see commit `7c6a688`)                                                                             |
+| Lost during split           | 5     | **Fixed** — `.pin-chip` → `.ap-status.yellow`                                                                |
+| Broken media-query cascade  | 1     | **Fixed** — media queries moved to `responsive.css` (loads last)                                             |
+| DS token refinement         | —     | **Fixed** — raw values and 3 `--ref-*` → `--sys-*` mappings (text-color-default/light, border-color-default) |
+| Redundant white backgrounds | 4     | **Fixed** — removed from `layout.css` / `drawer.css` (base.css grouped rule owns)                            |
 
 ---
 
