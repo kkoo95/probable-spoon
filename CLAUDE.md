@@ -59,9 +59,28 @@ Each view module imports utilities from `utils.js` and selectors from `store.js`
 
 All JS imports use ES modules with `?v=N` cache-busting suffixes. External deps load from `esm.sh`. `package.json` exists only for the DS npm packages.
 
-## Design System
+## Design System — READ FIRST before UI/CSS work
 
-Uses the official Agorapulse Design System CSS (`@agorapulse/ui-theme` + `@agorapulse/ui-symbol`).
+This project is built on the official Agorapulse Design System (`@agorapulse/ui-theme` + `@agorapulse/ui-symbol`). **Do not invent custom components, tokens, or icons when the DS already provides them.** Regressions from ad-hoc CSS overriding DS tokens are the #1 source of bugs in this repo (see `docs/css-audit.md`).
+
+### Required workflow before writing any HTML/CSS
+
+1. **Check if a DS component exists** — call `list_components` on the `ds-css` MCP. If the need matches one of the 37 `.ap-*` components, use it. Call `get_component <name>` for variants/modifiers (`.stroked`, `.primary`, color classes, etc.).
+2. **Check for an existing icon** — `search_icons <keyword>` before adding SVG. 290 icons available via `<i class="ap-icon-{name}"></i>`.
+3. **Use DS tokens, not hardcoded values** — for any spacing/color/radius/shadow:
+   - `search_tokens` + `recommend_token` on the ds-css MCP, OR
+   - grep `ds/desktop_variables.css` for `--ref-*` / `--sys-*`.
+   - **Never** write `padding: 20px` when `var(--ref-spacing-sm)` exists. Never write `#fff` when `var(--ref-color-white)` exists.
+4. **Prefer `--sys-*` over `--ref-*`** when a semantic token exists (text colors, border colors, component states).
+5. **Custom CSS only if nothing in the DS fits** — put it in `styles/app-components.css` (custom components) or a specific `styles/views/*.css` (page-specific). Never redeclare a `.ap-*` class with overrides — it defeats the DS.
+6. **Validate before committing** — run `validate_css` on the ds-css MCP to catch hardcoded values that should be tokens.
+
+### Anti-patterns to avoid
+
+- Redeclaring `.ap-icon-button`, `.ap-button`, etc. with custom `border`/`background` — use DS modifier classes (`.stroked`, `.transparent`, `.primary`, color variants).
+- Adding `padding: 20px` to `.step-card`, `.source-header`, etc. in a view file — these classes are already styled centrally (see `styles/base.css`), and hardcoded overrides flip the cascade silently.
+- Using hex colors, fixed pixel radii, or px-based spacings that don't match DS tokens.
+- Inventing icons when `search_icons` returns a match.
 
 ### DS files (in `ds/`)
 
