@@ -9,15 +9,40 @@ Interactive prototype for exploring and validating Agorapulse UI redesigns. No b
 ## Running the prototype
 
 ```bash
-npx serve -l 3000 .
-# Then open http://localhost:3000
+python3 -m http.server 8000
+# Then open http://localhost:8000
 ```
 
-With Claude Code, the dev server auto-launches via `.claude/launch.json`.
+With Claude Code, the dev server auto-launches via `.claude/launch.json` (Python http.server on port 8000).
 
 ## Architecture
 
-**Vanilla JS only** — `index.html` + `src/app.js` + `src/store.js`. `index.html` is ~380 lines of HTML. `app.js` renders views by mutating the DOM directly. State lives in a Zustand vanilla store (`store.js`) with `store.subscribe(renderApp)` driving re-renders.
+**Vanilla JS only** — no build step, no bundler. State lives in a Zustand vanilla store (`store.js`) with `store.subscribe(renderApp)` driving re-renders.
+
+### Source layout
+
+```
+src/
+  app.js              — entry point: imports, renderApp(), global event listeners
+  store.js            — Zustand store + selectors
+  utils.js            — shared helpers: icons map, escapeHtml, actionButton, pills, etc.
+  mock-generators.js  — deterministic mock data via seed hashing
+  views/              — view renderers (one file per workspace area)
+    sidebar.js          renderSidebar, renderSessionBar, renderWorkflowTabs
+    library.js          renderLibraryView, renderSourceCard, renderSelectionBar
+    brief.js            renderStrategyBriefView, renderBriefSection, renderBriefEntry*
+    posts.js            renderPostsView, renderDraftCard, renderPostsRail, previews
+    drawer.js           renderDrawer + initDrawer (DOM refs + listeners)
+    workspace.js        renderWorkspace, renderStepPlaceholder (router between views)
+  modals/             — self-contained modals (HTML injected at init)
+    session.js          create/rename session
+    feedback.js         feedback form
+    bug-report.js       bug report + screenshot capture
+    schedule.js         schedule posts
+    generate-image.js   AI image generation
+```
+
+Each view module imports utilities from `utils.js` and selectors from `store.js`, and exports its render functions. Each modal exports `init()` (injects HTML + binds events) and `render(state)`.
 
 ### State management
 
@@ -28,7 +53,7 @@ With Claude Code, the dev server auto-launches via `.claude/launch.json`.
 
 ### View routing
 
-`app.js` uses a tab-based model (`currentTab` in state). The `renderApp()` function dispatches to view renderers: `renderLibraryView`, `renderPostsView`, `renderStrategyBriefView`, `renderStepPlaceholder`, etc. Event delegation on container elements routes clicks via `data-*` attributes.
+`app.js` uses a tab-based model (`currentTab` in state). The `renderApp()` function calls `renderWorkspace()` from `views/workspace.js`, which dispatches to the per-tab view renderer (`renderLibraryView`, `renderPostsView`, `renderStrategyBriefView`, `renderStepPlaceholder`). Event delegation on container elements (`workspaceContent`, `assistantPanel`, `sessionSwitcher`) routes clicks via `data-*` attributes.
 
 ### Module loading
 
@@ -86,6 +111,3 @@ All `.ap-*` components come from the DS (`ds/css-ui/index.css`). Available: butt
 
 The `ds-css` MCP server provides design system tools: `validate_css`, `recommend_token`, `search_tokens`, `get_component`, `list_components`, `search_icons`, `get_text_style`, `get_layout_pattern`.
 
-## Hooks
-
-A post-tool-call hook (`.claude/hooks/post-tool-call.py`) sends file diffs to a local provenance-tracking webserver after Write/Edit operations. It may emit errors if the provenance server isn't running — these are safe to ignore.
