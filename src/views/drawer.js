@@ -76,11 +76,7 @@ export function renderDrawer(state, session) {
     "</span>";
   drawerConfidence.textContent = match.idea.confidence + "%";
   drawerSourceStatus.textContent =
-    match.source.status === "processing"
-      ? "Processing"
-      : match.source.status === "failed"
-        ? "Failed"
-        : "Processed";
+    match.source.status === "processing" ? "Processing" : match.source.status === "failed" ? "Failed" : "Processed";
   drawerPinnedState.textContent = match.idea.pinned ? "Pinned" : "Not pinned";
   drawerWhyItWorks.textContent =
     match.idea.priority === "high"
@@ -97,6 +93,8 @@ export function renderDrawer(state, session) {
   drawerAskQuestion.dataset.ideaId = match.idea.id;
   drawerMoveToBrief.dataset.ideaId = match.idea.id;
   drawerGeneratePost.textContent =
-    pendingAction === "generate" ? "Generating..." : "Generate " + generationPlatformCopy(ui.generationPlatform).shortLabel;
+    pendingAction === "generate"
+      ? "Generating..."
+      : "Generate " + generationPlatformCopy(ui.generationPlatform).shortLabel;
   drawerGeneratePost.disabled = pendingAction === "generate";
 }

@@ -20,11 +20,11 @@ await rm(ds, { recursive: true, force: true });
 await mkdir(join(ds, "css-ui"), { recursive: true });
 
 await Promise.all([
-  cp(join(theme, "desktop_variables.css"),          join(ds, "desktop_variables.css")),
-  cp(join(theme, "style/css-ui/font-face.css"),     join(ds, "css-ui/font-face.css")),
-  cp(join(theme, "style/css-ui/index.css"),         join(ds, "css-ui/index.css")),
-  cp(join(theme, "fonts"),                          join(ds, "fonts"), { recursive: true }),
-  cp(join(symbol, "ap-icons.css"),                  join(ds, "ap-icons.css")),
+  cp(join(theme, "desktop_variables.css"), join(ds, "desktop_variables.css")),
+  cp(join(theme, "style/css-ui/font-face.css"), join(ds, "css-ui/font-face.css")),
+  cp(join(theme, "style/css-ui/index.css"), join(ds, "css-ui/index.css")),
+  cp(join(theme, "fonts"), join(ds, "fonts"), { recursive: true }),
+  cp(join(symbol, "ap-icons.css"), join(ds, "ap-icons.css")),
 ]);
 
 console.log("✓ Design System synced to ./ds/");

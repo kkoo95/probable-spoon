@@ -1,417 +1,367 @@
-
-      .social-preview {
-        border-radius: var(--ref-radius-lg);
-        background: transparent;
-        padding: 0;
-        width: min(100%, 500px);
-        max-width: 500px;
-      }
-
-
-      .social-preview__frame {
-        background: var(--ref-color-white);
-        border: 1px solid var(--ref-color-grey-20);
-        border-radius: var(--ref-radius-lg);
-        overflow: hidden;
-      }
-
-
-      .social-preview__network {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 18px 0;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-
-      .social-preview__network--linkedin {
-        color: var(--ref-color-grey-80);
-      }
-
-
-      .social-preview__network--twitter {
-        color: var(--ref-color-grey-80);
-      }
-
-
-      .social-preview__avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 999px;
-        object-fit: cover;
-        flex: 0 0 auto;
-      }
-
-
-      .social-preview__avatar--sm {
-        width: 40px;
-        height: 40px;
-      }
-
-
-      .social-preview__text {
-        color: var(--ref-color-grey-100);
-        font-size: var(--ref-font-size-sm);
-        line-height: var(--ref-font-line-height-md);
-        white-space: normal;
-      }
-
-
-      .social-preview__hashtags {
-        margin-top: 10px;
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-
-      .social-preview__hashtag {
-        color: var(--ref-color-electric-blue-100);
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-
-      .social-preview__see-more {
-        color: var(--ref-color-grey-80);
-        font-weight: 600;
-      }
-
-
-      .social-preview.is-generating {
-        opacity: 0.88;
-      }
-
-
-      .linkedin-preview__header,
-      .twitter-preview__header {
-        display: flex;
-        gap: 12px;
-      }
-
-
-      .linkedin-preview__header {
-        padding: 18px 18px 14px;
-        align-items: flex-start;
-      }
-
-
-      .linkedin-preview__avatar-wrap {
-        position: relative;
-        flex: 0 0 auto;
-      }
-
-
-      .linkedin-preview__platform-badge {
-        position: absolute;
-        bottom: -2px;
-        right: -2px;
-        width: 18px;
-        height: 18px;
-        background: var(--ref-color-electric-blue-100);
-        border-radius: var(--ref-radius-sm);
-        border: 2px solid var(--ref-color-white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--ref-color-white);
-      }
-
-
-      .linkedin-preview__platform-badge svg {
-        width: 10px;
-        height: 10px;
-        display: block;
-      }
-
-
-      .linkedin-preview__follow {
-        margin-left: auto;
-        flex: 0 0 auto;
-        border: 1px solid var(--ref-color-grey-20);
-        background: transparent;
-        color: var(--ref-color-grey-100);
-        font-size: var(--ref-font-size-sm);
-        font-weight: 600;
-        border-radius: var(--ref-radius-full);
-        padding: 5px 16px;
-        cursor: default;
-        white-space: nowrap;
-      }
-
-
-      .linkedin-preview__author {
-        min-width: 0;
-        display: grid;
-        gap: 2px;
-      }
-
-
-      .linkedin-preview__author-row {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-
-
-      .linkedin-preview__name {
-        color: var(--ref-color-grey-150);
-        font-size: var(--ref-font-size-sm);
-        font-weight: 700;
-      }
-
-
-      .linkedin-preview__connection,
-      .linkedin-preview__timestamp,
-      .linkedin-preview__title {
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-xs);
-        line-height: var(--ref-font-line-height-xs);
-      }
-
-
-      .linkedin-preview__body {
-        padding: 0 18px 14px;
-        display: grid;
-        gap: 12px;
-      }
-
-
-      .linkedin-preview__cta {
-        color: var(--ref-color-grey-100);
-        font-size: var(--ref-font-size-sm);
-        font-weight: 600;
-      }
-
-
-      /* ── LinkedIn image attachment zone ── */
-      .linkedin-preview__attachment {
-        width: 100%;
-        display: block;
-        max-height: 240px;
-        object-fit: cover;
-      }
-
-
-      .linkedin-preview__image-cta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: calc(100% - 36px);
-        margin: 0 18px 14px;
-        padding: 10px;
-        border: 1.5px dashed var(--ref-color-grey-20);
-        border-radius: var(--ref-radius-md);
-        background: transparent;
-        color: var(--ref-color-grey-60);
-        font-size: var(--ref-font-size-xs);
-        font-weight: var(--ref-font-weight-bold);
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s, color 0.15s;
-        font-family: inherit;
-      }
-
-
-      .linkedin-preview__image-cta:hover {
-        border-color: var(--ref-color-electric-blue-100);
-        background: var(--ref-color-electric-blue-10);
-        color: var(--ref-color-electric-blue-100);
-      }
-
-
-      .linkedin-preview__stats {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 18px;
-        border-top: 1px solid var(--ref-color-grey-20);
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-xs);
-      }
-
-
-      .linkedin-preview__reactions {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-
-      .linkedin-preview__reaction-emojis {
-        font-size: 14px;
-        letter-spacing: -2px;
-      }
-
-
-      .linkedin-preview__stats-right {
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-xs);
-      }
-
-
-      .linkedin-preview__actions {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        border-top: 1px solid var(--ref-color-grey-20);
-      }
-
-
-      .linkedin-preview__actions button {
-        height: 44px;
-        border: 0;
-        background: transparent;
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-sm);
-        font-weight: 600;
-        cursor: default;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
-
-      .social-action-icon {
-        width: 18px;
-        height: 18px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: currentColor;
-      }
-
-
-      .social-action-icon svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-
-      .social-preview--twitter {
-        padding: 0;
-        background: transparent;
-      }
-
-
-      .social-preview--twitter .social-preview__frame {
-        border-radius: var(--ref-radius-lg);
-        border-color: var(--ref-color-grey-20);
-      }
-
-
-      .twitter-preview__header {
-        padding: 16px;
-        align-items: flex-start;
-      }
-
-
-      .twitter-preview__content {
-        min-width: 0;
-        display: grid;
-        gap: 8px;
-      }
-
-
-      .twitter-preview__author-line {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        flex-wrap: wrap;
-        line-height: 1.25;
-      }
-
-
-      .twitter-preview__name {
-        color: var(--ref-color-grey-150);
-        font-size: var(--ref-font-size-sm);
-        font-weight: 700;
-      }
-
-
-      .twitter-preview__handle,
-      .twitter-preview__dot,
-      .twitter-preview__timestamp {
-        color: var(--ref-color-grey-80);
-        font-size: 14px;
-      }
-
-
-      .twitter-preview__body {
-        color: var(--ref-color-grey-100);
-        font-size: var(--ref-font-size-sm);
-        line-height: var(--ref-font-line-height-md);
-      }
-
-
-      .twitter-preview__body .social-preview__hashtags {
-        margin-top: 8px;
-      }
-
-
-      .twitter-preview__body .social-preview__hashtag {
-        color: var(--ref-color-electric-blue-100);
-      }
-
-
-      .twitter-preview__cta {
-        margin-top: 8px;
-        color: var(--ref-color-grey-100);
-      }
-
-
-      .twitter-preview__actions {
-        display: flex;
-        gap: 4px;
-        align-items: center;
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-xs);
-        padding-top: 4px;
-      }
-
-
-      .twitter-preview__actions button {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 0;
-        background: transparent;
-        color: var(--ref-color-grey-80);
-        font-size: var(--ref-font-size-xs);
-        cursor: default;
-        padding: 4px 8px;
-        border-radius: 999px;
-      }
-
-
-      .twitter-preview__bookmark {
-        margin-left: auto;
-      }
-
-
-      .x-action-icon {
-        width: 18px;
-        height: 18px;
-        display: block;
-        flex: 0 0 auto;
-        fill: currentColor;
-      }
-
+.social-preview {
+  border-radius: var(--ref-radius-lg);
+  background: transparent;
+  padding: 0;
+  width: min(100%, 500px);
+  max-width: 500px;
+}
+
+.social-preview__frame {
+  background: var(--ref-color-white);
+  border: 1px solid var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-lg);
+  overflow: hidden;
+}
+
+.social-preview__network {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.social-preview__network--linkedin {
+  color: var(--ref-color-grey-80);
+}
+
+.social-preview__network--twitter {
+  color: var(--ref-color-grey-80);
+}
+
+.social-preview__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.social-preview__avatar--sm {
+  width: 40px;
+  height: 40px;
+}
+
+.social-preview__text {
+  color: var(--ref-color-grey-100);
+  font-size: var(--ref-font-size-sm);
+  line-height: var(--ref-font-line-height-md);
+  white-space: normal;
+}
+
+.social-preview__hashtags {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.social-preview__hashtag {
+  color: var(--ref-color-electric-blue-100);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.social-preview__see-more {
+  color: var(--ref-color-grey-80);
+  font-weight: 600;
+}
+
+.social-preview.is-generating {
+  opacity: 0.88;
+}
+
+.linkedin-preview__header,
+.twitter-preview__header {
+  display: flex;
+  gap: 12px;
+}
+
+.linkedin-preview__header {
+  padding: 18px 18px 14px;
+  align-items: flex-start;
+}
+
+.linkedin-preview__avatar-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.linkedin-preview__platform-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  background: var(--ref-color-electric-blue-100);
+  border-radius: var(--ref-radius-sm);
+  border: 2px solid var(--ref-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ref-color-white);
+}
+
+.linkedin-preview__platform-badge svg {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+.linkedin-preview__follow {
+  margin-left: auto;
+  flex: 0 0 auto;
+  border: 1px solid var(--ref-color-grey-20);
+  background: transparent;
+  color: var(--ref-color-grey-100);
+  font-size: var(--ref-font-size-sm);
+  font-weight: 600;
+  border-radius: var(--ref-radius-full);
+  padding: 5px 16px;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.linkedin-preview__author {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.linkedin-preview__author-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.linkedin-preview__name {
+  color: var(--ref-color-grey-150);
+  font-size: var(--ref-font-size-sm);
+  font-weight: 700;
+}
+
+.linkedin-preview__connection,
+.linkedin-preview__timestamp,
+.linkedin-preview__title {
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-xs);
+  line-height: var(--ref-font-line-height-xs);
+}
+
+.linkedin-preview__body {
+  padding: 0 18px 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.linkedin-preview__cta {
+  color: var(--ref-color-grey-100);
+  font-size: var(--ref-font-size-sm);
+  font-weight: 600;
+}
+
+/* ── LinkedIn image attachment zone ── */
+.linkedin-preview__attachment {
+  width: 100%;
+  display: block;
+  max-height: 240px;
+  object-fit: cover;
+}
+
+.linkedin-preview__image-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: calc(100% - 36px);
+  margin: 0 18px 14px;
+  padding: 10px;
+  border: 1.5px dashed var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-md);
+  background: transparent;
+  color: var(--ref-color-grey-60);
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    color 0.15s;
+  font-family: inherit;
+}
+
+.linkedin-preview__image-cta:hover {
+  border-color: var(--ref-color-electric-blue-100);
+  background: var(--ref-color-electric-blue-10);
+  color: var(--ref-color-electric-blue-100);
+}
+
+.linkedin-preview__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--ref-color-grey-20);
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-xs);
+}
+
+.linkedin-preview__reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linkedin-preview__reaction-emojis {
+  font-size: 14px;
+  letter-spacing: -2px;
+}
+
+.linkedin-preview__stats-right {
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-xs);
+}
+
+.linkedin-preview__actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--ref-color-grey-20);
+}
+
+.linkedin-preview__actions button {
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-sm);
+  font-weight: 600;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.social-action-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.social-action-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.social-preview--twitter {
+  padding: 0;
+  background: transparent;
+}
+
+.social-preview--twitter .social-preview__frame {
+  border-radius: var(--ref-radius-lg);
+  border-color: var(--ref-color-grey-20);
+}
+
+.twitter-preview__header {
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.twitter-preview__content {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.twitter-preview__author-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  line-height: 1.25;
+}
+
+.twitter-preview__name {
+  color: var(--ref-color-grey-150);
+  font-size: var(--ref-font-size-sm);
+  font-weight: 700;
+}
+
+.twitter-preview__handle,
+.twitter-preview__dot,
+.twitter-preview__timestamp {
+  color: var(--ref-color-grey-80);
+  font-size: 14px;
+}
+
+.twitter-preview__body {
+  color: var(--ref-color-grey-100);
+  font-size: var(--ref-font-size-sm);
+  line-height: var(--ref-font-line-height-md);
+}
+
+.twitter-preview__body .social-preview__hashtags {
+  margin-top: 8px;
+}
+
+.twitter-preview__body .social-preview__hashtag {
+  color: var(--ref-color-electric-blue-100);
+}
+
+.twitter-preview__cta {
+  margin-top: 8px;
+  color: var(--ref-color-grey-100);
+}
+
+.twitter-preview__actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-xs);
+  padding-top: 4px;
+}
+
+.twitter-preview__actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--ref-color-grey-80);
+  font-size: var(--ref-font-size-xs);
+  cursor: default;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.twitter-preview__bookmark {
+  margin-left: auto;
+}
+
+.x-action-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
 
 /* === Component overrides (migrated from components/) === */
 
-
-
-      .linkedin-preview__image-cta [class^="ap-icon-"] {
-        width: 13px;
-        height: 13px;
-        min-width: 13px;
-        flex-shrink: 0;
-      }
+.linkedin-preview__image-cta [class^="ap-icon-"] {
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  flex-shrink: 0;
+}

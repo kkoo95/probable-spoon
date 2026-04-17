@@ -110,4 +110,3 @@ All `.ap-*` components come from the DS (`ds/css-ui/index.css`). Available: butt
 ## MCP
 
 The `ds-css` MCP server provides design system tools: `validate_css`, `recommend_token`, `search_tokens`, `get_component`, `list_components`, `search_icons`, `get_text_style`, `get_layout_pattern`.
-

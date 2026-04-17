@@ -226,15 +226,13 @@ export async function mockGenerateAssistantReply({ session, prompt, anchorIdea, 
 
   if (!leadIdea) {
     return {
-      text:
-        "I don't have enough source material in this session yet. Add a source first and I can extract ideas, compare angles, or draft a post.",
+      text: "I don't have enough source material in this session yet. Add a source first and I can extract ideas, compare angles, or draft a post.",
       ideaId: null,
     };
   }
 
   if (compareIdea) {
-    const stronger =
-      leadIdea.confidence >= compareIdea.confidence ? leadIdea : compareIdea;
+    const stronger = leadIdea.confidence >= compareIdea.confidence ? leadIdea : compareIdea;
     const weaker = stronger.id === leadIdea.id ? compareIdea : leadIdea;
 
     return {
@@ -346,7 +344,10 @@ function refineBriefValue(sectionTitle, label, value) {
   }
 
   if (/audience/.test(normalizedSection)) {
-    return source + " with an emphasis on buyers evaluating how to turn source material into consistently publishable social content.";
+    return (
+      source +
+      " with an emphasis on buyers evaluating how to turn source material into consistently publishable social content."
+    );
   }
 
   if (/goal/.test(normalizedSection)) {
@@ -419,11 +420,7 @@ function refineBriefItems(sectionTitle, label, items = [], type = "list") {
   }
 
   if (/don't|dont/.test(normalizedLabel)) {
-    return [
-      "Use vague marketing language.",
-      "Hide the lesson behind jargon.",
-      "Pack too many ideas into one draft.",
-    ];
+    return ["Use vague marketing language.", "Hide the lesson behind jargon.", "Pack too many ideas into one draft."];
   }
 
   if (/platform/.test(normalizedLabel)) {
@@ -447,11 +444,7 @@ function refineBriefItems(sectionTitle, label, items = [], type = "list") {
   }
 
   if (/requirements/.test(normalizedLabel)) {
-    return [
-      "Avoid filler.",
-      "Use stats when supportable.",
-      "Keep the structure easy to edit.",
-    ];
+    return ["Avoid filler.", "Use stats when supportable.", "Keep the structure easy to edit."];
   }
 
   if (/observed topics/.test(normalizedLabel)) {

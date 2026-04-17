@@ -1,5 +1,13 @@
 import { store, getActiveSession, getSessionUi, validatePostDraft, getIdeaById } from "../store.js?v=15";
-import { escapeHtml, icons, actionButton, iconButton, overflowMenu, generationPlatformCopy, formatText } from "../utils.js?v=17";
+import {
+  escapeHtml,
+  icons,
+  actionButton,
+  iconButton,
+  overflowMenu,
+  generationPlatformCopy,
+  formatText,
+} from "../utils.js?v=17";
 
 export function truncateWithSeeMore(text, maxLength) {
   if (!text || text.length <= maxLength) {
@@ -42,49 +50,75 @@ export function LinkedInPostPreview(post) {
     '"><div class="social-preview__frame">' +
     '<div class="linkedin-preview__header">' +
     '<div class="linkedin-preview__avatar-wrap">' +
-    '<img class="social-preview__avatar" src="' + escapeHtml(post.author?.avatarUrl || "") + '" alt="' + escapeHtml(post.author?.name || "Author") + ' avatar" />' +
-    '</div>' +
+    '<img class="social-preview__avatar" src="' +
+    escapeHtml(post.author?.avatarUrl || "") +
+    '" alt="' +
+    escapeHtml(post.author?.name || "Author") +
+    ' avatar" />' +
+    "</div>" +
     '<div class="linkedin-preview__author">' +
     '<div class="linkedin-preview__author-row">' +
-    '<span class="linkedin-preview__name">' + escapeHtml(post.author?.name || "Generating draft") + '</span>' +
+    '<span class="linkedin-preview__name">' +
+    escapeHtml(post.author?.name || "Generating draft") +
+    "</span>" +
     '<span class="linkedin-preview__connection">• 1st</span>' +
-    '</div>' +
-    '<div class="linkedin-preview__title">' + escapeHtml(post.author?.title || "Preparing author profile") + '</div>' +
-    '<div class="linkedin-preview__timestamp">' + escapeHtml(post.metadata?.timestamp || "now") + ' • Public</div>' +
-    '</div>' +
-    '</div>' +
+    "</div>" +
+    '<div class="linkedin-preview__title">' +
+    escapeHtml(post.author?.title || "Preparing author profile") +
+    "</div>" +
+    '<div class="linkedin-preview__timestamp">' +
+    escapeHtml(post.metadata?.timestamp || "now") +
+    " • Public</div>" +
+    "</div>" +
+    "</div>" +
     '<div class="linkedin-preview__body">' +
     renderPostTextWithHashtags(post.content?.text || "", post.content?.hashtags || [], 420) +
     (post.content?.cta ? '<div class="linkedin-preview__cta">' + formatText(post.content.cta) + "</div>" : "") +
-    '</div>' +
+    "</div>" +
     // Image attachment zone — shows generated image or "Generate an image" CTA
     '<div class="linkedin-preview__image-zone">' +
     (post.imageUrl
       ? '<img class="linkedin-preview__attachment" src="' + escapeHtml(post.imageUrl) + '" alt="Generated image" />'
-      : '<button type="button" class="linkedin-preview__image-cta" data-open-generate-image="' + post.id + '">' +
+      : '<button type="button" class="linkedin-preview__image-cta" data-open-generate-image="' +
+        post.id +
+        '">' +
         '<i class="ap-icon-sparkles"></i>' +
-        'Generate an image' +
-        '</button>') +
-    '</div>' +
+        "Generate an image" +
+        "</button>") +
+    "</div>" +
     '<div class="linkedin-preview__stats">' +
-    '<span class="linkedin-preview__reactions"><span class="linkedin-preview__reaction-emojis">👍 💡</span>' + (engagement.likes ?? 0) + '</span>' +
-    '<span class="linkedin-preview__stats-right">' + (engagement.comments ?? 0) + ' comments · ' + (engagement.shares ?? 0) + ' reposts</span>' +
-    '</div>' +
+    '<span class="linkedin-preview__reactions"><span class="linkedin-preview__reaction-emojis">👍 💡</span>' +
+    (engagement.likes ?? 0) +
+    "</span>" +
+    '<span class="linkedin-preview__stats-right">' +
+    (engagement.comments ?? 0) +
+    " comments · " +
+    (engagement.shares ?? 0) +
+    " reposts</span>" +
+    "</div>" +
     '<div class="linkedin-preview__actions">' +
-    '<button type="button">' + icons.socialLike + '<span>Like</span></button>' +
-    '<button type="button">' + icons.socialComment + '<span>Comment</span></button>' +
-    '<button type="button">' + icons.socialShare + '<span>Repost</span></button>' +
-    '<button type="button">' + icons.socialSend + '<span>Send</span></button>' +
-    '</div>' +
-    '</div></article>'
+    '<button type="button">' +
+    icons.socialLike +
+    "<span>Like</span></button>" +
+    '<button type="button">' +
+    icons.socialComment +
+    "<span>Comment</span></button>" +
+    '<button type="button">' +
+    icons.socialShare +
+    "<span>Repost</span></button>" +
+    '<button type="button">' +
+    icons.socialSend +
+    "<span>Send</span></button>" +
+    "</div>" +
+    "</div></article>"
   );
 }
 
 export const xIcons = {
-  reply:    '<i class="ap-icon-reply"></i>',
-  repost:   '<i class="ap-icon-repost"></i>',
-  like:     '<i class="ap-icon-heart"></i>',
-  views:    '<i class="ap-icon-bar-graph"></i>',
+  reply: '<i class="ap-icon-reply"></i>',
+  repost: '<i class="ap-icon-repost"></i>',
+  like: '<i class="ap-icon-heart"></i>',
+  views: '<i class="ap-icon-bar-graph"></i>',
   bookmark: '<i class="ap-icon-bookmark"></i>',
 };
 
@@ -95,28 +129,56 @@ export function TwitterPostPreview(post) {
     (post.status === "generating" ? "is-generating" : "") +
     '"><div class="social-preview__frame">' +
     '<div class="twitter-preview__header">' +
-    '<img class="social-preview__avatar social-preview__avatar--sm" src="' + escapeHtml(post.author?.avatarUrl || "") + '" alt="' + escapeHtml(post.author?.name || "Author") + ' avatar" />' +
+    '<img class="social-preview__avatar social-preview__avatar--sm" src="' +
+    escapeHtml(post.author?.avatarUrl || "") +
+    '" alt="' +
+    escapeHtml(post.author?.name || "Author") +
+    ' avatar" />' +
     '<div class="twitter-preview__content">' +
     '<div class="twitter-preview__author-line">' +
-    '<span class="twitter-preview__name">' + escapeHtml(post.author?.name || "Generating draft") + '</span>' +
-    '<span class="twitter-preview__handle">@' + escapeHtml(post.author?.handle || "publishing") + '</span>' +
+    '<span class="twitter-preview__name">' +
+    escapeHtml(post.author?.name || "Generating draft") +
+    "</span>" +
+    '<span class="twitter-preview__handle">@' +
+    escapeHtml(post.author?.handle || "publishing") +
+    "</span>" +
     '<span class="twitter-preview__dot">·</span>' +
-    '<span class="twitter-preview__timestamp">' + escapeHtml(post.metadata?.timestamp || "now") + '</span>' +
-    '</div>' +
+    '<span class="twitter-preview__timestamp">' +
+    escapeHtml(post.metadata?.timestamp || "now") +
+    "</span>" +
+    "</div>" +
     '<div class="twitter-preview__body">' +
     renderPostTextWithHashtags(post.content?.text || "", post.content?.hashtags || [], 260) +
     (post.content?.cta ? '<div class="twitter-preview__cta">' + formatText(post.content.cta) + "</div>" : "") +
-    '</div>' +
+    "</div>" +
     '<div class="twitter-preview__actions">' +
-    '<button type="button">' + xIcons.reply + '<span>' + (engagement.comments ?? 0) + '</span></button>' +
-    '<button type="button">' + xIcons.repost + '<span>' + (engagement.reposts ?? engagement.shares ?? 0) + '</span></button>' +
-    '<button type="button">' + xIcons.like + '<span>' + (engagement.likes ?? 0) + '</span></button>' +
-    '<button type="button">' + xIcons.views + '<span>' + (engagement.views ?? 0) + '</span></button>' +
-    '<button type="button" class="twitter-preview__bookmark">' + xIcons.bookmark + '</button>' +
-    '</div>' +
-    '</div>' +
-    '</div>' +
-    '</div></article>'
+    '<button type="button">' +
+    xIcons.reply +
+    "<span>" +
+    (engagement.comments ?? 0) +
+    "</span></button>" +
+    '<button type="button">' +
+    xIcons.repost +
+    "<span>" +
+    (engagement.reposts ?? engagement.shares ?? 0) +
+    "</span></button>" +
+    '<button type="button">' +
+    xIcons.like +
+    "<span>" +
+    (engagement.likes ?? 0) +
+    "</span></button>" +
+    '<button type="button">' +
+    xIcons.views +
+    "<span>" +
+    (engagement.views ?? 0) +
+    "</span></button>" +
+    '<button type="button" class="twitter-preview__bookmark">' +
+    xIcons.bookmark +
+    "</button>" +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+    "</div></article>"
   );
 }
 
@@ -233,7 +295,8 @@ export function matchesPostsSearch(post, group, query) {
 export function matchesPostsStatus(post, filter) {
   if (filter === "all") return true;
   if (filter === "needs_fixes") return validatePostDraft(post).length > 0;
-  if (filter === "ready") return post.status === "ready" && post.workflowState === "draft" && validatePostDraft(post).length === 0;
+  if (filter === "ready")
+    return post.status === "ready" && post.workflowState === "draft" && validatePostDraft(post).length === 0;
   if (filter === "prepared") return post.workflowState === "prepared";
   if (filter === "scheduled") return post.workflowState === "scheduled";
   if (filter === "best") return !!post.aiSuggested;
@@ -283,31 +346,60 @@ export function groupPostsByIdea(session, ui) {
     groups.get(groupId).posts.push(post);
   });
 
-  return order.map((groupId) => {
-    const group = groups.get(groupId);
-    group.posts = group.posts.filter((post) => {
-      const statusMatch = matchesPostsStatus(post, ui.postsStatusFilter);
-      const searchMatch = matchesPostsSearch(post, group, ui.postsSearch || "");
-      const networkMatch = !ui.postsNetworkFilter || ui.postsNetworkFilter === "all" || post.platform === ui.postsNetworkFilter;
-      return statusMatch && searchMatch && networkMatch;
-    });
-    group.posts = sortPosts(group.posts, ui.postsSort || "needs_fixes");
-    return group;
-  }).filter((group) => group.posts.length > 0);
+  return order
+    .map((groupId) => {
+      const group = groups.get(groupId);
+      group.posts = group.posts.filter((post) => {
+        const statusMatch = matchesPostsStatus(post, ui.postsStatusFilter);
+        const searchMatch = matchesPostsSearch(post, group, ui.postsSearch || "");
+        const networkMatch =
+          !ui.postsNetworkFilter || ui.postsNetworkFilter === "all" || post.platform === ui.postsNetworkFilter;
+        return statusMatch && searchMatch && networkMatch;
+      });
+      group.posts = sortPosts(group.posts, ui.postsSort || "needs_fixes");
+      return group;
+    })
+    .filter((group) => group.posts.length > 0);
 }
 
 export function buildPostsRailItems(session) {
   const posts = session.posts;
   return {
     views: [
-      { id: "all-posts",       label: "All posts",   icon: "megaphone", count: posts.length, kind: "all" },
-      { id: "needs-fixes",     label: "Needs fixes", icon: "error",     count: posts.filter((post) => validatePostDraft(post).length > 0).length, kind: "status", value: "needs_fixes" },
-      { id: "scheduled-posts", label: "Scheduled",   icon: "calendar",  count: posts.filter((post) => post.workflowState === "scheduled").length, kind: "status", value: "scheduled" },
+      { id: "all-posts", label: "All posts", icon: "megaphone", count: posts.length, kind: "all" },
+      {
+        id: "needs-fixes",
+        label: "Needs fixes",
+        icon: "error",
+        count: posts.filter((post) => validatePostDraft(post).length > 0).length,
+        kind: "status",
+        value: "needs_fixes",
+      },
+      {
+        id: "scheduled-posts",
+        label: "Scheduled",
+        icon: "calendar",
+        count: posts.filter((post) => post.workflowState === "scheduled").length,
+        kind: "status",
+        value: "scheduled",
+      },
     ],
     networks: [
       { id: "network-all", label: "All", count: posts.length, kind: "network", value: "all" },
-      { id: "network-linkedin", label: "LinkedIn", count: posts.filter((post) => post.platform === "linkedin").length, kind: "network", value: "linkedin" },
-      { id: "network-twitter", label: "X", count: posts.filter((post) => post.platform === "twitter").length, kind: "network", value: "twitter" },
+      {
+        id: "network-linkedin",
+        label: "LinkedIn",
+        count: posts.filter((post) => post.platform === "linkedin").length,
+        kind: "network",
+        value: "linkedin",
+      },
+      {
+        id: "network-twitter",
+        label: "X",
+        count: posts.filter((post) => post.platform === "twitter").length,
+        kind: "network",
+        value: "twitter",
+      },
     ],
   };
 }
@@ -331,7 +423,9 @@ export function filterChips(ui) {
 }
 
 export function postsWorkspaceViewLabel(ui) {
-  const parts = [ui.postsNetworkFilter === "all" ? "All networks" : generationPlatformCopy(ui.postsNetworkFilter).shortLabel];
+  const parts = [
+    ui.postsNetworkFilter === "all" ? "All networks" : generationPlatformCopy(ui.postsNetworkFilter).shortLabel,
+  ];
   if (ui.postsStatusFilter !== "all") {
     parts.push(
       {
@@ -381,7 +475,7 @@ export function renderDraftCard(post, ui, isBestDraft) {
     issuesBanner +
     '<div class="post-review-card__preview">' +
     preview +
-    "</div></div><div class=\"post-review-card__floating-actions\">" +
+    '</div></div><div class="post-review-card__floating-actions">' +
     iconButton({
       label: "Edit post",
       icon: icons.pencil,
@@ -429,12 +523,14 @@ export function renderIdeaPostGroup(group, ui) {
     group.id +
     '"><div class="idea-post-group__header"><div class="idea-post-group__copy"><h3>' +
     escapeHtml(group.idea?.title || "Generated drafts") +
-    '</h3>' +
-    (group.source?.name ? '<div class="idea-post-group__source">' + escapeHtml(group.source.name) + '</div>' : '') +
+    "</h3>" +
+    (group.source?.name ? '<div class="idea-post-group__source">' + escapeHtml(group.source.name) + "</div>" : "") +
     '</div><div class="idea-post-group__meta"><span>' +
     group.posts.length +
     " posts</span>" +
-    (invalidCount ? '<span class="idea-post-group__meta-divider">•</span><span>' + invalidCount + " need fixes</span>" : "") +
+    (invalidCount
+      ? '<span class="idea-post-group__meta-divider">•</span><span>' + invalidCount + " need fixes</span>"
+      : "") +
     "</div>" +
     iconButton({
       label: isCollapsed ? "Expand group" : "Collapse group",
@@ -442,10 +538,11 @@ export function renderIdeaPostGroup(group, ui) {
       attrs: 'data-toggle-posts-group="' + group.id + '"',
     }) +
     "</div>" +
-    (isCollapsed ? "" :
-    '<div class="idea-post-group__rows">' +
-    group.posts.map((post) => renderDraftCard(post, ui, post.id === bestDraftId)).join("") +
-    "</div>") +
+    (isCollapsed
+      ? ""
+      : '<div class="idea-post-group__rows">' +
+        group.posts.map((post) => renderDraftCard(post, ui, post.id === bestDraftId)).join("") +
+        "</div>") +
     "</section>"
   );
 }
@@ -457,12 +554,20 @@ export function renderPostsRail(session, ui) {
   const renderItem = (item) =>
     '<button type="button" class="posts-rail__item' +
     (activeView === item.id ? " active" : "") +
-    '" data-posts-rail-item="' + item.id +
-    '" data-posts-rail-kind="' + item.kind +
-    '" data-posts-rail-value="' + (item.value || "") + '">' +
-    (item.icon ? '<i class="ap-icon-' + item.icon + ' posts-rail__item-icon" aria-hidden="true"></i>' : '') +
-    '<span class="posts-rail__item-label">' + escapeHtml(item.label) + "</span>" +
-    '<span class="posts-rail__item-count">' + item.count + "</span>" +
+    '" data-posts-rail-item="' +
+    item.id +
+    '" data-posts-rail-kind="' +
+    item.kind +
+    '" data-posts-rail-value="' +
+    (item.value || "") +
+    '">' +
+    (item.icon ? '<i class="ap-icon-' + item.icon + ' posts-rail__item-icon" aria-hidden="true"></i>' : "") +
+    '<span class="posts-rail__item-label">' +
+    escapeHtml(item.label) +
+    "</span>" +
+    '<span class="posts-rail__item-count">' +
+    item.count +
+    "</span>" +
     "</button>";
 
   return (
@@ -486,14 +591,19 @@ export function renderPostsErrorSummary(session) {
 
   return (
     '<div class="ap-infobox error has-title posts-error-summary">' +
-    "<i aria-hidden=\"true\">" + icons.error + "</i>" +
+    '<i aria-hidden="true">' +
+    icons.error +
+    "</i>" +
     '<div class="ap-infobox-content">' +
     '<div class="ap-infobox-texts">' +
     '<span class="ap-infobox-title">' +
-    count + " post" + (count > 1 ? "s" : "") + " need fixes" +
-    '</span>' +
+    count +
+    " post" +
+    (count > 1 ? "s" : "") +
+    " need fixes" +
+    "</span>" +
     '<span class="ap-infobox-message">Fix validation issues before scheduling.</span>' +
-    '</div>' +
+    "</div>" +
     actionButton({
       style: "stroked",
       color: "grey",
@@ -518,11 +628,15 @@ export function renderPostsSelectionBar(session, ui) {
     // Left — select-all checkbox + count
     '<label class="posts-toolbar__select-all">' +
     '<input type="checkbox" class="posts-toolbar__checkbox" data-select-all-posts' +
-    (allSelected ? ' checked' : '') +
-    (indeterminate ? ' data-indeterminate' : '') +
+    (allSelected ? " checked" : "") +
+    (indeterminate ? " data-indeterminate" : "") +
     ' aria-label="Select all posts" />' +
-    '</label>' +
-    '<span class="posts-toolbar__count">' + count + ' post' + (count > 1 ? 's' : '') + ' selected</span>' +
+    "</label>" +
+    '<span class="posts-toolbar__count">' +
+    count +
+    " post" +
+    (count > 1 ? "s" : "") +
+    " selected</span>" +
     '<div class="posts-toolbar__spacer"></div>' +
     // Right — actions
     actionButton({
@@ -534,11 +648,11 @@ export function renderPostsSelectionBar(session, ui) {
     }) +
     '<button type="button" class="ap-icon-button red" data-delete-selected-posts="true" aria-label="Delete selected posts" title="Delete selected">' +
     '<i class="ap-icon-trash"></i>' +
-    '</button>' +
+    "</button>" +
     '<button type="button" class="ap-icon-button" data-clear-post-selection="true" aria-label="Clear selection" title="Clear selection">' +
     '<i class="ap-icon-close"></i>' +
-    '</button>' +
-    '</div>'
+    "</button>" +
+    "</div>"
   );
 }
 

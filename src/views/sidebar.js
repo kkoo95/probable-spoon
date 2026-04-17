@@ -1,5 +1,14 @@
 import { store, getActiveSession, getSessionUi, sortSessions } from "../store.js?v=15";
-import { escapeHtml, formatText, icons, actionButton, iconButton, overflowMenu, assistantModeCopy, generationPlatformCopy } from "../utils.js?v=17";
+import {
+  escapeHtml,
+  formatText,
+  icons,
+  actionButton,
+  iconButton,
+  overflowMenu,
+  assistantModeCopy,
+  generationPlatformCopy,
+} from "../utils.js?v=17";
 
 import { countIdeas } from "../store.js?v=15";
 
@@ -169,13 +178,17 @@ export function messageMarkup(message) {
     return (
       '<div class="ai-notice">' +
       '<button class="ai-notice__toggle" type="button" aria-expanded="false">' +
-      '<span class="ai-notice__label">' + escapeHtml(message.meta) + '</span>' +
+      '<span class="ai-notice__label">' +
+      escapeHtml(message.meta) +
+      "</span>" +
       '<span class="ai-notice__chevron"><i class="ap-icon-chevron-down"></i></span>' +
-      '</button>' +
+      "</button>" +
       '<div class="ai-notice__detail">' +
-      '<span class="ai-notice__text">' + escapeHtml(message.text) + '</span>' +
-      '</div>' +
-      '</div>'
+      '<span class="ai-notice__text">' +
+      escapeHtml(message.text) +
+      "</span>" +
+      "</div>" +
+      "</div>"
     );
   }
 
@@ -266,7 +279,7 @@ export function renderSidebar(state, session, ui) {
     assistantThread.innerHTML =
       '<div class="assistant-empty"><div class="assistant-turn__meta"><span class="assistant-turn__role">' +
       icons.sparkles +
-      "<span>AI copilot</span></span></div><div class=\"assistant-turn__content\">Create a work session to unlock persistent chat, session-specific ideas, and post drafts.</div></div>";
+      '<span>AI copilot</span></span></div><div class="assistant-turn__content">Create a work session to unlock persistent chat, session-specific ideas, and post drafts.</div></div>';
     assistantPromptDeck.innerHTML = "";
     return;
   }
@@ -278,10 +291,7 @@ export function renderSidebar(state, session, ui) {
           id: "starter",
           role: "assistant",
           meta: "AI copilot",
-          text:
-            "I can pressure-test ideas, compare angles, and draft the next post for " +
-            session.name +
-            ".",
+          text: "I can pressure-test ideas, compare angles, and draft the next post for " + session.name + ".",
           status: "ready",
           ideaId: session.sources.flatMap((source) => source.ideas).find((idea) => idea.pinned)?.id || null,
         },

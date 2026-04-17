@@ -1,8 +1,4 @@
-import {
-  getActiveSession,
-  getSessionUi,
-  store,
-} from "./store.js?v=15";
+import { getActiveSession, getSessionUi, store } from "./store.js?v=15";
 
 import { hydrateStaticIcons, assistantModeCopy } from "./utils.js?v=17";
 import { getPostById } from "./views/posts.js?v=17";
@@ -22,7 +18,6 @@ const assistantInput = document.getElementById("assistantInput");
 const workspaceContent = document.getElementById("workspaceContent");
 
 let briefAutoSaveTimer = 0;
-
 
 function renderApp() {
   const state = store.getState();
@@ -63,10 +58,7 @@ sessionSwitcher.addEventListener("click", (event) => {
 
   const sessionAction = event.target.closest("[data-session-action]");
   if (sessionAction) {
-    store.getState().handleSessionAction(
-      sessionAction.dataset.sessionAction,
-      sessionAction.dataset.sessionId,
-    );
+    store.getState().handleSessionAction(sessionAction.dataset.sessionAction, sessionAction.dataset.sessionId);
   }
 });
 
@@ -105,7 +97,10 @@ assistantPanel.addEventListener("click", (event) => {
     if (session && ui) {
       store
         .getState()
-        .addSystemMessage(assistantModeCopy(ui.assistantMode).dropTitle + ". New source inputs stay attached to this session.", "Source intake");
+        .addSystemMessage(
+          assistantModeCopy(ui.assistantMode).dropTitle + ". New source inputs stay attached to this session.",
+          "Source intake",
+        );
     }
     return;
   }
@@ -233,9 +228,8 @@ workspaceContent.addEventListener("change", (event) => {
 workspaceContent.addEventListener("click", (event) => {
   // Generate image — placeholder zone or toolbar button
   const genImgZone = event.target.closest("[data-open-generate-image]");
-  const genImgBtn  = event.target.closest("[data-generate-image-btn]");
-  const genPostId  = (genImgZone || genImgBtn)?.dataset.openGenerateImage
-                  || (genImgBtn?.dataset.generateImageBtn);
+  const genImgBtn = event.target.closest("[data-generate-image-btn]");
+  const genPostId = (genImgZone || genImgBtn)?.dataset.openGenerateImage || genImgBtn?.dataset.generateImageBtn;
   if (genPostId) {
     openGenerateImageModal(genPostId, (imageUrl) => {
       store.getState().setPostImage(genPostId, imageUrl);
@@ -329,17 +323,13 @@ workspaceContent.addEventListener("click", (event) => {
 
   const editEntry = event.target.closest("[data-edit-entry]");
   if (editEntry) {
-    store
-      .getState()
-      .openBriefEntryComposer(editEntry.dataset.sectionId, editEntry.dataset.editEntry);
+    store.getState().openBriefEntryComposer(editEntry.dataset.sectionId, editEntry.dataset.editEntry);
     return;
   }
 
   const deleteEntry = event.target.closest("[data-delete-entry]");
   if (deleteEntry) {
-    store
-      .getState()
-      .deleteBriefEntry(deleteEntry.dataset.sectionId, deleteEntry.dataset.deleteEntry);
+    store.getState().deleteBriefEntry(deleteEntry.dataset.sectionId, deleteEntry.dataset.deleteEntry);
     return;
   }
 
@@ -401,7 +391,7 @@ workspaceContent.addEventListener("click", (event) => {
     const _state = store.getState();
     const _session = getActiveSession(_state);
     const _ui = _session ? getSessionUi(_session.id, _state) : null;
-    const _ids = (_ui?.selectedPostIds) || [];
+    const _ids = _ui?.selectedPostIds || [];
     const _posts = _session ? _session.posts.filter((p) => _ids.includes(p.id)) : [];
     if (_posts.length) {
       openScheduleModal(_posts, () => _state.scheduleSelectedPosts());
@@ -481,7 +471,6 @@ workspaceContent.addEventListener("click", (event) => {
     return;
   }
 });
-
 
 // Init modals + drawer (inject HTML + bind events)
 initSessionModal();

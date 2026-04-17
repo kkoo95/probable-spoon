@@ -110,7 +110,8 @@ export function renderBriefEntryPreview(entry) {
 }
 
 export function renderBriefEntryEditor(composer) {
-  const multiline = composer.type === "textarea" || composer.type === "list" || composer.type === "chips" || composer.type === "cta";
+  const multiline =
+    composer.type === "textarea" || composer.type === "list" || composer.type === "chips" || composer.type === "cta";
   const labelInput =
     '<input class="brief-inline-input" type="text" placeholder="Field label" value="' +
     escapeHtml(composer.label) +
@@ -162,9 +163,7 @@ export function renderBriefEntryEditor(composer) {
 export function renderBriefSection(session, ui, section) {
   const composer = ui.briefComposer;
   const isComposerInSection =
-    composer &&
-    (composer.mode === "add-entry" || composer.mode === "edit-entry") &&
-    composer.sectionId === section.id;
+    composer && (composer.mode === "add-entry" || composer.mode === "edit-entry") && composer.sectionId === section.id;
   const isRefining = !!ui.pendingBriefRefine;
   const hasContent = section.entries.some(briefEntryHasContent);
   const collapsed = Boolean(section.collapsed);
@@ -192,16 +191,13 @@ export function renderBriefSection(session, ui, section) {
       stroked: true,
     }) +
     '</div></div><div class="strategy-section__body' +
-    (collapsed ? ' is-collapsed' : "") +
+    (collapsed ? " is-collapsed" : "") +
     '">' +
     (!collapsed && section.entries.length
       ? '<div class="strategy-entry-list">' +
         section.entries
           .map((entry) => {
-            const isEditing =
-              isComposerInSection &&
-              composer.mode === "edit-entry" &&
-              composer.entryId === entry.id;
+            const isEditing = isComposerInSection && composer.mode === "edit-entry" && composer.entryId === entry.id;
 
             if (isEditing) return renderBriefEntryEditor(composer);
 
@@ -221,12 +217,7 @@ export function renderBriefSection(session, ui, section) {
               iconButton({
                 label: "Delete entry",
                 icon: icons.trash,
-                attrs:
-                  'data-delete-entry="' +
-                  entry.id +
-                  '" data-section-id="' +
-                  section.id +
-                  '"',
+                attrs: 'data-delete-entry="' + entry.id + '" data-section-id="' + section.id + '"',
               }) +
               "</div></div>"
             );
@@ -235,38 +226,36 @@ export function renderBriefSection(session, ui, section) {
         "</div>"
       : !collapsed
         ? '<div class="inline-empty-state strategy-section__empty"><div class="icon">' +
-        briefSectionIcon(section.icon) +
-        '</div><p>No content yet. Generate a first pass or add guidance inline.</p>' +
-        actionButton({
-          style: "ghost",
-          color: "blue",
-          label: "Generate with AI",
-          attrs: 'data-refine-brief="' + section.id + '"',
-        }) +
-        "</div>"
+          briefSectionIcon(section.icon) +
+          "</div><p>No content yet. Generate a first pass or add guidance inline.</p>" +
+          actionButton({
+            style: "ghost",
+            color: "blue",
+            label: "Generate with AI",
+            attrs: 'data-refine-brief="' + section.id + '"',
+          }) +
+          "</div>"
         : "") +
     (!collapsed && isComposerInSection && composer.mode === "add-entry" ? renderBriefEntryEditor(composer) : "") +
     (!collapsed
       ? '<div class="strategy-section__footer">' +
-    '<div class="strategy-section__footer-left">' +
-    actionButton({
-      style: "ghost",
-      color: "blue",
-      label: "+ Add field",
-      attrs: 'data-open-add-entry="' + section.id + '"',
-    }) +
-    '</div><div class="strategy-section__footer-right">' +
-    actionButton({
-      style: "ghost",
-      color: "blue",
-      label: isRefining ? "Refining..." : "Refine with AI",
-      attrs: 'data-refine-brief="' + section.id + '"',
-      disabled: isRefining,
-    }) +
-    (lockedCount
-      ? '<span class="strategy-section__footer-note">' + lockedCount + " locked</span>"
-      : "") +
-    "</div></div>"
+        '<div class="strategy-section__footer-left">' +
+        actionButton({
+          style: "ghost",
+          color: "blue",
+          label: "+ Add field",
+          attrs: 'data-open-add-entry="' + section.id + '"',
+        }) +
+        '</div><div class="strategy-section__footer-right">' +
+        actionButton({
+          style: "ghost",
+          color: "blue",
+          label: isRefining ? "Refining..." : "Refine with AI",
+          attrs: 'data-refine-brief="' + section.id + '"',
+          disabled: isRefining,
+        }) +
+        (lockedCount ? '<span class="strategy-section__footer-note">' + lockedCount + " locked</span>" : "") +
+        "</div></div>"
       : "") +
     "</div></section>"
   );
@@ -353,7 +342,7 @@ export function renderReadOnlySection(section) {
             (entry) =>
               '<div class="strategy-entry"><div class="strategy-entry__trigger" role="group"><div class="strategy-entry__title-row"><span class="strategy-entry__label">' +
               escapeHtml(entry.label || "Entry") +
-              "</span></div><div class=\"strategy-entry__preview\">" +
+              '</span></div><div class="strategy-entry__preview">' +
               renderBriefEntryPreview(entry) +
               "</div></div></div>",
           )
@@ -378,9 +367,9 @@ export function renderContextDocumentView({ title, description, document, nextAc
     sectionCount +
     " sections</span> · <span>" +
     entryCount +
-    " entries</span></div></div><div class=\"step-card\"><h4>Next move</h4><p>" +
+    ' entries</span></div></div><div class="step-card"><h4>Next move</h4><p>' +
     escapeHtml(nextAction) +
-    "</p></div></div><div class=\"strategy-brief-layout\">" +
+    '</p></div></div><div class="strategy-brief-layout">' +
     (document.sections.length
       ? document.sections.map((section) => renderReadOnlySection(section)).join("")
       : '<div class="empty-state"><div class="icon">' +

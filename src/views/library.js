@@ -1,12 +1,23 @@
 import { store, getActiveSession, countIdeas, countPinnedIdeas } from "../store.js?v=15";
-import { escapeHtml, icons, actionButton, iconButton, overflowMenu, statusPill, priorityPill, strengthPill, iconForType, generationPlatformCopy } from "../utils.js?v=17";
+import {
+  escapeHtml,
+  icons,
+  actionButton,
+  iconButton,
+  overflowMenu,
+  statusPill,
+  priorityPill,
+  strengthPill,
+  iconForType,
+  generationPlatformCopy,
+} from "../utils.js?v=17";
 import { renderPlatformSelector } from "./posts.js?v=17";
 
 export function renderEmptyIdeas(sessionName) {
   return (
     '<div class="inline-empty-state"><div class="icon">' +
     icons.filePdf +
-    "</div><h4 style=\"margin-top: 14px; color: var(--ref-color-grey-150)\">No ideas extracted yet</h4><p>" +
+    '</div><h4 style="margin-top: 14px; color: var(--ref-color-grey-150)">No ideas extracted yet</h4><p>' +
     escapeHtml(sessionName) +
     " has this source attached, but there are no extracted ideas yet. Run another extraction pass or ask a focused question to deepen the output.</p></div>"
   );
@@ -49,13 +60,23 @@ export function renderSourceCard(source, ui, sessionName) {
               overflowMenu({
                 label: "Idea actions",
                 items: [
-                  '<button type="button" class="action-menu-item" data-open-idea="' + idea.id + '">Open details</button>',
-                  '<button type="button" class="action-menu-item" data-ask-idea="' + idea.id + '">Ask about this idea</button>',
-                  '<button type="button" class="action-menu-item" data-draft-idea="' + idea.id + '">Draft post</button>',
-                  '<button type="button" class="action-menu-item" data-compare-idea="' + idea.id + '">' +
+                  '<button type="button" class="action-menu-item" data-open-idea="' +
+                    idea.id +
+                    '">Open details</button>',
+                  '<button type="button" class="action-menu-item" data-ask-idea="' +
+                    idea.id +
+                    '">Ask about this idea</button>',
+                  '<button type="button" class="action-menu-item" data-draft-idea="' +
+                    idea.id +
+                    '">Draft post</button>',
+                  '<button type="button" class="action-menu-item" data-compare-idea="' +
+                    idea.id +
+                    '">' +
                     (pendingAction === "compare" ? "Comparing..." : "Compare") +
                     "</button>",
-                  '<button type="button" class="action-menu-item" data-pin-idea="' + idea.id + '">' +
+                  '<button type="button" class="action-menu-item" data-pin-idea="' +
+                    idea.id +
+                    '">' +
                     (idea.pinned ? "Unpin idea" : "Pin idea") +
                     "</button>",
                 ],
@@ -87,7 +108,7 @@ export function renderSourceCard(source, ui, sessionName) {
       icons.sparkles +
       " " +
       source.ideas.length +
-      " ready to review</div></div><div class=\"idea-list\">" +
+      ' ready to review</div></div><div class="idea-list">' +
       ideasHtml +
       "</div></div>"
     : "";
@@ -166,7 +187,7 @@ export function renderLibraryView(session, ui) {
   return (
     '<section class="tab-panel"><section class="library-overview"><div class="session-overview"><div class="session-overview__copy"><div class="library-overview__eyebrow">Session library</div><div class="library-overview__title">Library</div><div class="library-overview__description">Sources and extracted ideas for <strong>' +
     escapeHtml(session.name) +
-    "</strong>. Switch sessions from the sidebar to swap the whole working context.</div></div><div class=\"library-overview__meta\"><span>" +
+    '</strong>. Switch sessions from the sidebar to swap the whole working context.</div></div><div class="library-overview__meta"><span>' +
     session.sources.length +
     " sources</span> · <span>" +
     countIdeas(session) +
@@ -196,7 +217,9 @@ export function renderLibraryView(session, ui) {
         ? '<div class="empty-state"><div class="icon">' +
           icons.search +
           '</div><h3 style="margin-top: 18px; color: var(--ref-color-grey-150)">No matching sources or ideas</h3><p>Try another keyword or clear the search to view the full library for this session.</p></div>'
-        : '<div class="sources">' + filteredSources.map((source) => renderSourceCard(source, ui, session.name)).join("") + "</div>") +
+        : '<div class="sources">' +
+          filteredSources.map((source) => renderSourceCard(source, ui, session.name)).join("") +
+          "</div>") +
     "</section></section>"
   );
 }

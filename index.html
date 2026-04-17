@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Redesign Demo</title>
     <!-- Agorapulse Design System -->
-    <link rel="stylesheet" href="./ds/desktop_variables.css">
-    <link rel="stylesheet" href="./ds/css-ui/font-face.css">
-    <link rel="stylesheet" href="./ds/ap-icons.css">
-    <link rel="stylesheet" href="./ds/css-ui/index.css">
+    <link rel="stylesheet" href="./ds/desktop_variables.css" />
+    <link rel="stylesheet" href="./ds/css-ui/font-face.css" />
+    <link rel="stylesheet" href="./ds/ap-icons.css" />
+    <link rel="stylesheet" href="./ds/css-ui/index.css" />
     <!-- App overrides -->
-    <link rel="stylesheet" href="./styles/tokens.css">
-    <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/layout.css">
-    <link rel="stylesheet" href="./styles/ds-patches.css">
-    <link rel="stylesheet" href="./styles/app-components.css">
-    <link rel="stylesheet" href="./styles/views/session.css">
-    <link rel="stylesheet" href="./styles/views/assistant.css">
-    <link rel="stylesheet" href="./styles/views/library.css">
-    <link rel="stylesheet" href="./styles/views/sources.css">
-    <link rel="stylesheet" href="./styles/views/ideas.css">
-    <link rel="stylesheet" href="./styles/views/brief.css">
-    <link rel="stylesheet" href="./styles/views/posts.css">
-    <link rel="stylesheet" href="./styles/views/previews.css">
-    <link rel="stylesheet" href="./styles/views/drawer.css">
-    <link rel="stylesheet" href="./styles/views/modals.css">
+    <link rel="stylesheet" href="./styles/tokens.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/ds-patches.css" />
+    <link rel="stylesheet" href="./styles/app-components.css" />
+    <link rel="stylesheet" href="./styles/views/session.css" />
+    <link rel="stylesheet" href="./styles/views/assistant.css" />
+    <link rel="stylesheet" href="./styles/views/library.css" />
+    <link rel="stylesheet" href="./styles/views/sources.css" />
+    <link rel="stylesheet" href="./styles/views/ideas.css" />
+    <link rel="stylesheet" href="./styles/views/brief.css" />
+    <link rel="stylesheet" href="./styles/views/posts.css" />
+    <link rel="stylesheet" href="./styles/views/previews.css" />
+    <link rel="stylesheet" href="./styles/views/drawer.css" />
+    <link rel="stylesheet" href="./styles/views/modals.css" />
   </head>
   <body>
-    
     <div class="page">
       <div class="app-shell">
         <header class="app-topbar">
@@ -84,7 +83,12 @@
 
                 <div class="assistant-composer__actions">
                   <div class="assistant-composer__actions-right">
-                    <button class="ap-icon-button stroked" type="button" id="assistantAttach" aria-label="Attach source">
+                    <button
+                      class="ap-icon-button stroked"
+                      type="button"
+                      id="assistantAttach"
+                      aria-label="Attach source"
+                    >
                       <i class="ap-icon-plus"></i>
                     </button>
                     <button class="ap-button primary orange" type="button" id="assistantSend">Send</button>
@@ -98,11 +102,21 @@
             <section class="workspace-chrome">
               <div class="workspace-chrome__inner">
                 <nav class="workflow-tabs" aria-label="Workflow" id="workflowTabs">
-                  <button class="workflow-tab active" type="button" data-tab="library"><i class="ap-icon-feature-library"></i>Library</button>
-                  <button class="workflow-tab" type="button" data-tab="brief"><i class="ap-icon-file--text"></i>Brief</button>
-                  <button class="workflow-tab" type="button" data-tab="voice"><i class="ap-icon-headset"></i>Voice</button>
-                  <button class="workflow-tab" type="button" data-tab="brand"><i class="ap-icon-sparkles"></i>Brand Theme</button>
-                  <button class="workflow-tab" type="button" data-tab="posts"><i class="ap-icon-megaphone"></i>Posts</button>
+                  <button class="workflow-tab active" type="button" data-tab="library">
+                    <i class="ap-icon-feature-library"></i>Library
+                  </button>
+                  <button class="workflow-tab" type="button" data-tab="brief">
+                    <i class="ap-icon-file--text"></i>Brief
+                  </button>
+                  <button class="workflow-tab" type="button" data-tab="voice">
+                    <i class="ap-icon-headset"></i>Voice
+                  </button>
+                  <button class="workflow-tab" type="button" data-tab="brand">
+                    <i class="ap-icon-sparkles"></i>Brand Theme
+                  </button>
+                  <button class="workflow-tab" type="button" data-tab="posts">
+                    <i class="ap-icon-megaphone"></i>Posts
+                  </button>
                 </nav>
               </div>
             </section>
@@ -124,7 +138,15 @@
                 Idea detail
               </span>
             </div>
-            <h2 id="drawerTitle" style="margin-top: var(--ref-spacing-sm); font-size: var(--ref-font-size-xxl); line-height: var(--ref-font-line-height-xl); color: var(--ref-color-grey-150)"></h2>
+            <h2
+              id="drawerTitle"
+              style="
+                margin-top: var(--ref-spacing-sm);
+                font-size: var(--ref-font-size-xxl);
+                line-height: var(--ref-font-line-height-xl);
+                color: var(--ref-color-grey-150);
+              "
+            ></h2>
             <p id="drawerDescription"></p>
             <div class="drawer-meta" id="drawerMeta"></div>
             <div class="drawer-facts">
@@ -155,7 +177,8 @@
         <div class="drawer-section">
           <h4>Why this could work</h4>
           <p id="drawerWhyItWorks">
-            This idea is grounded in the current source context and can be promoted into the next content step without losing traceability.
+            This idea is grounded in the current source context and can be promoted into the next content step without
+            losing traceability.
           </p>
         </div>
         <div class="drawer-section">
@@ -168,7 +191,10 @@
         </div>
         <div class="drawer-note">
           <div class="drawer-note__eyebrow">Session context</div>
-          <p id="drawerSessionNote">This idea stays attached to the active work session, so the brief, voice, and posts can all inherit the same source context.</p>
+          <p id="drawerSessionNote">
+            This idea stays attached to the active work session, so the brief, voice, and posts can all inherit the same
+            source context.
+          </p>
         </div>
         <div class="drawer-actions">
           <button type="button" class="ap-button primary orange" id="drawerGeneratePost">Generate post</button>

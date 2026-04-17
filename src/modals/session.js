@@ -58,7 +58,9 @@ export function init() {
   saveBtn = document.getElementById("saveSessionModal");
 
   saveBtn.addEventListener("click", save);
-  nameInput.addEventListener("keydown", (e) => { if (e.key === "Enter") save(); });
+  nameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") save();
+  });
   document.getElementById("closeSessionModal").addEventListener("click", close);
   document.getElementById("cancelSessionModal").addEventListener("click", close);
   backdrop.addEventListener("click", close);
@@ -72,7 +74,10 @@ export function render(state) {
   modal.style.display = open ? "flex" : "none";
   modal.setAttribute("aria-hidden", open ? "false" : "true");
 
-  if (!open) { lastSignature = ""; return; }
+  if (!open) {
+    lastSignature = "";
+    return;
+  }
 
   const signature = state.sessionModal.mode + ":" + (state.sessionModal.editingSessionId || "");
   const session = state.sessionModal.editingSessionId
@@ -85,7 +90,11 @@ export function render(state) {
   if (signature !== lastSignature) {
     nameInput.value = session ? session.name : "";
     window.setTimeout(() => {
-      try { nameInput.focus({ preventScroll: true }); } catch { nameInput.focus(); }
+      try {
+        nameInput.focus({ preventScroll: true });
+      } catch {
+        nameInput.focus();
+      }
     }, 0);
     lastSignature = signature;
   }

@@ -27,23 +27,22 @@ export function renderStepPlaceholder(tab, session, ui) {
     });
   }
 
-  const copy =
-    {
-      voice: {
-        title: "Voice",
-        description: "Set tone, author perspective, and writing constraints for this session.",
-        nextAction: "Define session voice",
-      },
-      brand: {
-        title: "Brand Theme",
-        description: "Anchor the session with brand messages, proof points, and visual direction.",
-        nextAction: "Set brand anchors",
-      },
-    }[tab] || {
-      title: "Workflow",
-      description: "This panel is scoped to the active session.",
-      nextAction: "Continue session workflow",
-    };
+  const copy = {
+    voice: {
+      title: "Voice",
+      description: "Set tone, author perspective, and writing constraints for this session.",
+      nextAction: "Define session voice",
+    },
+    brand: {
+      title: "Brand Theme",
+      description: "Anchor the session with brand messages, proof points, and visual direction.",
+      nextAction: "Set brand anchors",
+    },
+  }[tab] || {
+    title: "Workflow",
+    description: "This panel is scoped to the active session.",
+    nextAction: "Continue session workflow",
+  };
 
   return (
     '<section class="tab-panel"><section class="step-layout"><div class="step-hero"><div class="step-hero__top"><div class="step-hero__copy"><div class="step-hero__eyebrow">Session step</div><div class="step-hero__title">' +

@@ -105,10 +105,16 @@ const HTML = `
   </div>
 </aside>`;
 
-function close() { store.getState().closeBugReportModal(); }
+function close() {
+  store.getState().closeBugReportModal();
+}
 
 function focusSafe(el) {
-  try { el.focus({ preventScroll: true }); } catch { el.focus(); }
+  try {
+    el.focus({ preventScroll: true });
+  } catch {
+    el.focus();
+  }
 }
 
 function setScreenshot(dataUrl) {
@@ -158,31 +164,58 @@ async function capturePageScreenshot() {
   try {
     const h2c = await loadHtml2Canvas();
     const canvas = await h2c(document.documentElement, {
-      scale: 0.55, useCORS: true, logging: false,
+      scale: 0.55,
+      useCORS: true,
+      logging: false,
       ignoreElements: (el) => el.id === "bugReportModal" || el.id === "bugReportBackdrop",
     });
     return canvas.toDataURL("image/jpeg", 0.8);
-  } catch { return null; }
+  } catch {
+    return null;
+  }
 }
 
 function populateContext() {
   const state = store.getState();
-  const tabLabels = { library: "Library", brief: "Brief", voice: "Voice", brand: "Brand Theme", posts: "Posts" };
+  const tabLabels = {
+    library: "Library",
+    brief: "Brief",
+    voice: "Voice",
+    brand: "Brand Theme",
+    posts: "Posts",
+  };
   const session = getActiveSession(state);
   const tab = tabLabels[state.currentTab] || state.currentTab;
   const name = session?.name || "—";
-  const time = new Date().toLocaleString("en-GB", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+  const time = new Date().toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   contextBar.innerHTML =
     '<span class="bug-context__label">Context</span>' +
-    '<span class="bug-context__pill">' + escapeHtml(tab) + "</span>" +
-    '<span class="bug-context__pill">' + escapeHtml(name) + "</span>" +
-    '<span class="bug-context__pill">' + escapeHtml(time) + "</span>";
+    '<span class="bug-context__pill">' +
+    escapeHtml(tab) +
+    "</span>" +
+    '<span class="bug-context__pill">' +
+    escapeHtml(name) +
+    "</span>" +
+    '<span class="bug-context__pill">' +
+    escapeHtml(time) +
+    "</span>";
 }
 
 function buildDescription(category, action, problem) {
   const state = store.getState();
   const session = getActiveSession(state);
-  const tabLabels = { library: "Library", brief: "Brief", voice: "Voice", brand: "Brand Theme", posts: "Posts" };
+  const tabLabels = {
+    library: "Library",
+    brief: "Brief",
+    voice: "Voice",
+    brand: "Brand Theme",
+    posts: "Posts",
+  };
   let desc = "";
   if (category) desc += "**Category:** " + (categoryLabels[category] || category) + "\n\n";
   if (action) desc += "**What I was trying to do:** " + action + "\n\n";
@@ -219,7 +252,8 @@ export function init() {
     window.setTimeout(() => focusSafe(problemInput), 50);
     capturingBadge.style.display = "";
     const dataUrl = await capturePageScreenshot();
-    if (dataUrl) setScreenshot(dataUrl); else capturingBadge.style.display = "none";
+    if (dataUrl) setScreenshot(dataUrl);
+    else capturingBadge.style.display = "none";
   });
 
   // Close
@@ -242,11 +276,20 @@ export function init() {
 
   // File upload
   dropzone.addEventListener("click", () => fileInput.click());
-  dropzone.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); } });
-  dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.classList.add("drag-over"); });
+  dropzone.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      fileInput.click();
+    }
+  });
+  dropzone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropzone.classList.add("drag-over");
+  });
   dropzone.addEventListener("dragleave", () => dropzone.classList.remove("drag-over"));
   dropzone.addEventListener("drop", (e) => {
-    e.preventDefault(); dropzone.classList.remove("drag-over");
+    e.preventDefault();
+    dropzone.classList.remove("drag-over");
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
@@ -261,12 +304,19 @@ export function init() {
     reader.onload = (e) => setScreenshot(e.target.result);
     reader.readAsDataURL(file);
   });
-  document.getElementById("bugRemoveFileBtn").addEventListener("click", (e) => { e.stopPropagation(); clearScreenshot(); });
+  document.getElementById("bugRemoveFileBtn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    clearScreenshot();
+  });
 
   // Submit
   submitBtn.addEventListener("click", async () => {
     const problem = problemInput.value.trim();
-    if (!problem) { problemInput.classList.add("invalid"); focusSafe(problemInput); return; }
+    if (!problem) {
+      problemInput.classList.add("invalid");
+      focusSafe(problemInput);
+      return;
+    }
     problemInput.classList.remove("invalid");
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting…";
