@@ -1,0 +1,25 @@
+/* App-specific tokens not provided by the DS */
+:root {
+  /* Surface aliases (used in layout/views) */
+  --background-bg: var(--ref-color-grey-bg);
+  --surface-canvas: var(--ref-color-grey-bg);
+  --surface-subtle: var(--ref-color-grey-05);
+  --surface-raised: var(--ref-color-white);
+  --border-soft: var(--ref-color-grey-20);
+
+  /* Radius scale (DS only provides sm/md/lg via --sys-border-radius-*) */
+  --ref-radius-sm: 4px;
+  --ref-radius-md: 6px;
+  --ref-radius-lg: 8px;
+  --ref-radius-xl: 12px;
+  --ref-radius-full: 9999px;
+
+  /* Mermaid/AI gradient */
+  --ref-mermaid-gradient-from: #578fff;
+  --ref-color-mermaid-gradient-to: #df52ff;
+  --ref-color-mermaid-20: #ebe3ff;
+  --ref-color-mermaid-10: #f5f1ff;
+
+  /* Purple bg (not in DS) */
+  --ref-color-purple-bg: #f5f3ff;
+}

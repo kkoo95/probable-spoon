@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ds-css": {
+      "type": "http",
+      "url": "https://mqsjls33s2z5fehd5gcdbwgyom0bbaxk.lambda-url.eu-north-1.on.aws/"
+    }
+  }
+}

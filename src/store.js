@@ -318,13 +318,7 @@ function structuredBriefEntry({
   };
 }
 
-function createStrategySection({
-  key,
-  title,
-  icon,
-  collapsed = true,
-  entries = [],
-}) {
+function createStrategySection({ key, title, icon, collapsed = true, entries = [] }) {
   return {
     id: createId("brief-section"),
     key,
@@ -651,9 +645,7 @@ function normalizeBriefItems(type, value) {
   }
 
   if (type === "list" || type === "chips") {
-    return Array.isArray(value)
-      ? value.map((item) => String(item).trim()).filter(Boolean)
-      : [];
+    return Array.isArray(value) ? value.map((item) => String(item).trim()).filter(Boolean) : [];
   }
 
   return [];
@@ -696,9 +688,7 @@ function serializeBriefEntry(entry) {
   const type = entry?.type || "text";
 
   if (type === "cta") {
-    return (entry.items || [])
-      .map((item) => [item.label, item.url].filter(Boolean).join(" | "))
-      .join("\n");
+    return (entry.items || []).map((item) => [item.label, item.url].filter(Boolean).join(" | ")).join("\n");
   }
 
   if (type === "list" || type === "chips") {
@@ -785,7 +775,8 @@ function defaultVoiceSections() {
         {
           id: createId("voice-entry"),
           label: "Assumed sophistication",
-          value: "Write for experienced B2B marketers who understand the problem space but want sharper framing and usable examples.",
+          value:
+            "Write for experienced B2B marketers who understand the problem space but want sharper framing and usable examples.",
         },
       ],
     },
@@ -807,7 +798,8 @@ function defaultBrandThemeSections() {
         {
           id: createId("brand-entry"),
           label: "Why it matters",
-          value: "The brand should feel useful and credible, helping teams move from information overload to confident execution.",
+          value:
+            "The brand should feel useful and credible, helping teams move from information overload to confident execution.",
         },
       ],
     },
@@ -831,7 +823,8 @@ function defaultBrandThemeSections() {
         {
           id: createId("brand-entry"),
           label: "Look and feel",
-          value: "Editorial, clean, and modern. Favor highlighted proof, sharp contrast, and one memorable idea per asset.",
+          value:
+            "Editorial, clean, and modern. Favor highlighted proof, sharp contrast, and one memorable idea per asset.",
         },
       ],
     },
@@ -1173,9 +1166,7 @@ export function validatePostDraft(post) {
 
   if (combinedLength > validationLengthLimit(platform)) {
     issues.push(
-      platform === "twitter"
-        ? "Post exceeds X recommended length."
-        : "Post exceeds LinkedIn recommended length.",
+      platform === "twitter" ? "Post exceeds X recommended length." : "Post exceeds LinkedIn recommended length.",
     );
   }
 
@@ -1374,10 +1365,7 @@ export const store = createStore((set, get) => ({
         const filteredSessions = sessions.filter((item) => item.id !== sessionId);
         nextUiBySession = { ...state.uiBySession };
         delete nextUiBySession[sessionId];
-        nextActiveSessionId =
-          filteredSessions.find((item) => !item.archived)?.id ||
-          filteredSessions[0]?.id ||
-          null;
+        nextActiveSessionId = filteredSessions.find((item) => !item.archived)?.id || filteredSessions[0]?.id || null;
         return {
           sessions: filteredSessions,
           activeSessionId: nextActiveSessionId,
@@ -1575,12 +1563,12 @@ export const store = createStore((set, get) => ({
     if (!sessionId) return;
     set((state) => ({
       sessions: state.sessions.map((s) =>
-        s.id !== sessionId ? s : {
-          ...s,
-          posts: s.posts.map((p) =>
-            p.id !== postId ? p : { ...p, imageUrl }
-          ),
-        }
+        s.id !== sessionId
+          ? s
+          : {
+              ...s,
+              posts: s.posts.map((p) => (p.id !== postId ? p : { ...p, imageUrl })),
+            },
       ),
     }));
   },
@@ -1768,19 +1756,20 @@ export const store = createStore((set, get) => ({
       if (!session) return state;
       session.posts = session.posts.filter((post) => post.id !== postId);
       touchSession(session);
-        return {
-          sessions,
-          uiBySession: {
-            ...state.uiBySession,
-            [sessionId]: {
-              ...state.uiBySession[sessionId],
-              selectedPostIds: (state.uiBySession[sessionId].selectedPostIds || []).filter((id) => id !== postId),
-              postsShowSelectedOnly: (state.uiBySession[sessionId].selectedPostIds || []).filter((id) => id !== postId).length
-                ? state.uiBySession[sessionId].postsShowSelectedOnly
-                : false,
-            },
+      return {
+        sessions,
+        uiBySession: {
+          ...state.uiBySession,
+          [sessionId]: {
+            ...state.uiBySession[sessionId],
+            selectedPostIds: (state.uiBySession[sessionId].selectedPostIds || []).filter((id) => id !== postId),
+            postsShowSelectedOnly: (state.uiBySession[sessionId].selectedPostIds || []).filter((id) => id !== postId)
+              .length
+              ? state.uiBySession[sessionId].postsShowSelectedOnly
+              : false,
           },
-        };
+        },
+      };
     });
   },
 
@@ -1829,17 +1818,17 @@ export const store = createStore((set, get) => ({
       if (!session) return state;
       session.posts = session.posts.filter((post) => !selected.includes(post.id));
       touchSession(session);
-        return {
-          sessions,
-          uiBySession: {
-            ...state.uiBySession,
-            [sessionId]: {
-              ...state.uiBySession[sessionId],
-              selectedPostIds: [],
-              postsShowSelectedOnly: false,
-            },
+      return {
+        sessions,
+        uiBySession: {
+          ...state.uiBySession,
+          [sessionId]: {
+            ...state.uiBySession[sessionId],
+            selectedPostIds: [],
+            postsShowSelectedOnly: false,
           },
-        };
+        },
+      };
     });
   },
 
@@ -1969,7 +1958,14 @@ export const store = createStore((set, get) => ({
         id: createId("message"),
         role: "system",
         meta: "Workflow",
-        text: "Scheduled " + selected.length + " selected draft" + (selected.length > 1 ? "s" : "") + " into " + label + ".",
+        text:
+          "Scheduled " +
+          selected.length +
+          " selected draft" +
+          (selected.length > 1 ? "s" : "") +
+          " into " +
+          label +
+          ".",
         status: "ready",
         createdAt: Date.now(),
       });
@@ -2044,9 +2040,7 @@ export const store = createStore((set, get) => ({
       }
 
       const brief = normalizeStrategyBrief(session.strategyBrief, "empty");
-      let insightsSection = brief.sections.find(
-        (section) => section.title.toLowerCase() === "source insights",
-      );
+      let insightsSection = brief.sections.find((section) => section.title.toLowerCase() === "source insights");
 
       if (!insightsSection) {
         insightsSection = {
@@ -2506,12 +2500,9 @@ export const store = createStore((set, get) => ({
 
     try {
       const nextSession = findSession(get().sessions, sessionId);
-      const match =
-        nextSession && options.ideaId ? findIdeaInSession(nextSession, options.ideaId) : null;
+      const match = nextSession && options.ideaId ? findIdeaInSession(nextSession, options.ideaId) : null;
       const compareMatch =
-        nextSession && options.compareIdeaId
-          ? findIdeaInSession(nextSession, options.compareIdeaId)
-          : null;
+        nextSession && options.compareIdeaId ? findIdeaInSession(nextSession, options.compareIdeaId) : null;
 
       const reply = await mockGenerateAssistantReply({
         session: nextSession,
@@ -2583,13 +2574,10 @@ export const store = createStore((set, get) => ({
     const anchor = session ? findIdeaInSession(session, ideaId) : null;
     if (!session || !anchor) return;
 
-    const selectedPartnerId =
-      ui.selectedIdeaIds.find((selectedId) => selectedId !== ideaId) || null;
+    const selectedPartnerId = ui.selectedIdeaIds.find((selectedId) => selectedId !== ideaId) || null;
     const compareMatch = selectedPartnerId
       ? findIdeaInSession(session, selectedPartnerId)
-      : session.sources
-          .flatMap((source) => source.ideas)
-          .find((idea) => idea.id !== ideaId) || null;
+      : session.sources.flatMap((source) => source.ideas).find((idea) => idea.id !== ideaId) || null;
 
     set((state) => ({
       uiBySession: {
@@ -2605,7 +2593,11 @@ export const store = createStore((set, get) => ({
     }));
 
     const prompt = compareMatch?.idea
-      ? 'Compare "' + anchor.idea.title + '" against "' + compareMatch.idea.title + '" and tell me which is more actionable.'
+      ? 'Compare "' +
+        anchor.idea.title +
+        '" against "' +
+        compareMatch.idea.title +
+        '" and tell me which is more actionable.'
       : 'Compare "' + anchor.idea.title + '" against the strongest other idea in the session.';
 
     await get().sendChatMessage(prompt, {
@@ -2819,10 +2811,7 @@ export const store = createStore((set, get) => ({
     const match = session ? findIdeaInSession(session, ideaId) : null;
     if (!match) return;
 
-    get().sendChatMessage(
-      'Help me pressure-test "' + match.idea.title + '" before I draft a post.',
-      { ideaId },
-    );
+    get().sendChatMessage('Help me pressure-test "' + match.idea.title + '" before I draft a post.', { ideaId });
   },
 }));
 

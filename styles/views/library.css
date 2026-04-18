@@ -1,0 +1,113 @@
+.library-overview {
+  display: grid;
+  gap: var(--ref-spacing-xs);
+  align-content: start;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.library-overview__eyebrow {
+  color: var(--ref-color-grey-60);
+  font-size: 10px;
+  font-weight: var(--ref-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.library-overview__title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xxs);
+  color: var(--ref-color-grey-150);
+  font-size: var(--ref-font-size-lg);
+  line-height: var(--ref-font-line-height-lg);
+  font-weight: var(--ref-font-weight-bold);
+}
+
+.library-overview__description {
+  color: var(--sys-text-color-light);
+  font-size: var(--ref-font-size-xs);
+  line-height: var(--ref-font-line-height-md);
+  max-width: 680px;
+}
+
+.library-overview__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xs);
+  flex-wrap: wrap;
+  color: var(--ref-color-grey-60);
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+}
+
+.library-overview__meta span,
+.drawer-fact {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 var(--ref-spacing-xxs);
+  border: none;
+  border-radius: var(--ref-radius-full);
+  background: var(--ref-color-grey-05);
+  box-shadow: none;
+}
+
+.library-content {
+  display: grid;
+  gap: var(--ref-spacing-xs);
+  align-content: start;
+  max-width: 100%;
+  padding-bottom: var(--ref-spacing-xxs);
+}
+
+/* === Component overrides (migrated from components/) === */
+
+.empty-state .icon [class^="ap-icon-"] {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.inline-empty-state .icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto;
+  border-radius: var(--ref-radius-lg);
+  background: var(--ref-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ref-color-grey-60);
+  border: 1px solid var(--sys-border-color-default);
+}
+
+.inline-empty-state p {
+  margin: var(--ref-spacing-xxs) auto 0;
+  max-width: 520px;
+  color: var(--sys-text-color-light);
+  line-height: var(--ref-font-line-height-md);
+}
+
+.empty-state .icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: var(--ref-radius-xl);
+  background: var(--ref-color-grey-05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ref-color-grey-60);
+}
+
+.empty-state p {
+  margin: var(--ref-spacing-xxs) auto 0;
+  max-width: 620px;
+  color: var(--sys-text-color-light);
+  line-height: var(--ref-font-line-height-md);
+}

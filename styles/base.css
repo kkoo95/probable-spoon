@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  color: var(--sys-text-color-default);
+  font-family: var(--ref-font-family);
+  font-size: var(--ref-font-size-sm);
+  line-height: var(--ref-font-line-height-sm);
+  overflow: hidden;
+  background: var(--ref-color-grey-bg);
+}
+
+body {
+  padding: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.assistant-panel.is-disabled .assistant-prompt,
+.assistant-panel.is-disabled .source-type-tab,
+.assistant-panel.is-disabled .assistant-input,
+.assistant-panel.is-disabled #assistantAttach,
+.assistant-panel.is-disabled #assistantSend,
+.assistant-panel.is-disabled .assistant-message__action {
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Agorapulse v2 normalization */
+.app-shell,
+.app-topbar,
+.workspace-chrome,
+.assistant-panel,
+.assistant-panel__bottom,
+.assistant-composer,
+.assistant-turn__content,
+.assistant-empty,
+.assistant-prompt,
+.library-overview,
+.step-card,
+.posts-command-bar,
+.session-empty,
+.hero,
+.toolbar,
+.source-index,
+.source-card,
+.empty-state,
+.source-body,
+.idea-item,
+.selection-bar,
+.drawer,
+.drawer-header,
+.drawer-section--primary,
+.session-modal,
+.skeleton {
+  background: var(--ref-color-white);
+}
+
+.app-shell,
+.app-topbar,
+.workspace-chrome,
+.assistant-panel,
+.assistant-panel__bottom,
+.assistant-composer,
+.assistant-turn__content,
+.assistant-empty,
+.library-overview,
+.step-card,
+.posts-command-bar,
+.session-empty,
+.hero,
+.toolbar,
+.source-index,
+.source-card,
+.empty-state,
+.idea-item,
+.selection-bar,
+.drawer,
+.drawer-header,
+.drawer-section--primary,
+.session-modal,
+.skeleton {
+  border-color: var(--ref-color-grey-20);
+  box-shadow: 0 1px 2px rgba(33, 46, 68, 0.04);
+}
+
+.step-card,
+.posts-command-bar,
+.session-empty,
+.hero,
+.toolbar,
+.source-index,
+.source-card,
+.empty-state,
+.idea-item,
+.drawer-section--primary,
+.session-modal,
+.skeleton {
+  border: 1px solid var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-xl);
+  box-shadow: 0 1px 2px rgba(33, 46, 68, 0.04);
+}
+
+.step-card,
+.posts-command-bar,
+.source-index,
+.source-header,
+.source-body,
+.idea-item,
+.drawer-section--primary {
+  padding: var(--ref-spacing-sm);
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

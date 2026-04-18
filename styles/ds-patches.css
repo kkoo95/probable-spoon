@@ -1,0 +1,29 @@
+/*
+ * DS patches — styles needed by the app that the DS doesn't provide.
+ * This file should shrink over time as the DS evolves.
+ */
+
+/* ── Modal backdrop (DS provides dialog styling but not the overlay) ── */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 46, 68, 0.26);
+  display: none;
+  z-index: 50;
+}
+
+.modal-backdrop.open {
+  display: block;
+}
+
+/* ── .ap-status yellow variant — not in the DS (has orange/red/green/blue/grey/tagOrange) ── */
+
+.ap-status.yellow {
+  background: var(--ref-color-yellow-10);
+  color: var(--ref-color-yellow-150);
+}
+
+.ap-status.yellow::before {
+  background: var(--ref-color-yellow-150);
+}

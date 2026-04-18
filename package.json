@@ -1,0 +1,29 @@
+{
+  "name": "probable-spoon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve -p 8000",
+    "sync-ds": "node scripts/sync-ds.mjs",
+    "postinstall": "node scripts/sync-ds.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@agorapulse/ui-symbol": "^20.2.3",
+    "@agorapulse/ui-theme": "^20.3.5"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3"
+  },
+  "lint-staged": {
+    "*.{js,mjs,css,html,json,md}": "prettier --write"
+  }
+}

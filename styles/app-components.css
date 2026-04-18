@@ -1,0 +1,299 @@
+/* App-specific components (no DS equivalent) */
+
+.ai-notice {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ai-notice__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xxxs);
+  background: none;
+  border: none;
+  padding: 2px 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.ai-notice__chevron {
+  display: flex;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  color: var(--ref-color-grey-60);
+  transition: transform 0.15s ease;
+}
+
+.ai-notice.open .ai-notice__chevron {
+  transform: rotate(90deg);
+}
+
+.ai-notice__label {
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+  background: linear-gradient(to right, var(--ref-mermaid-gradient-from), var(--ref-color-mermaid-gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-notice__detail {
+  display: none;
+  margin-top: 3px;
+  padding: 4px 6px;
+  background: var(--ref-color-grey-05);
+  border-radius: var(--ref-radius-sm);
+  border: 1px solid var(--sys-border-color-default);
+}
+
+.ai-notice.open .ai-notice__detail {
+  display: block;
+}
+
+.ai-notice__text {
+  font-size: var(--ref-font-size-xs);
+  color: var(--ref-color-grey-60);
+  line-height: var(--ref-font-line-height-sm);
+}
+
+.platform-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xxxs);
+  padding: 4px;
+  border-radius: var(--ref-radius-full);
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--ref-color-grey-20);
+  background: var(--ref-color-grey-05);
+}
+
+.platform-switch button {
+  height: 36px;
+  border: 0;
+  border-radius: var(--ref-radius-full);
+  background: transparent;
+  color: var(--sys-text-color-light);
+  padding: 0 var(--ref-spacing-sm);
+  cursor: pointer;
+  font-size: var(--ref-font-size-sm);
+  font-weight: var(--ref-font-weight-bold);
+  white-space: nowrap;
+}
+
+.platform-switch button.active {
+  background: var(--ref-color-white);
+  color: var(--ref-color-grey-150);
+  box-shadow: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ref-spacing-xxs);
+  padding: 6px var(--ref-spacing-xs);
+  border-radius: var(--ref-radius-full);
+  border: 1px solid var(--ref-color-orange-20);
+  background: var(--ref-color-orange-10);
+  color: var(--ref-color-orange-150);
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: var(--ref-spacing-xs);
+  min-width: min(100%, 520px);
+}
+
+.stat-label {
+  font-size: var(--ref-font-size-xs);
+  font-weight: var(--ref-font-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ref-color-grey-60);
+}
+
+.stat-value {
+  margin-top: var(--ref-spacing-xxs);
+  font-size: var(--ref-font-size-xxl);
+  font-weight: var(--ref-font-weight-extra-bold);
+  color: var(--ref-color-grey-150);
+}
+
+.toolbar {
+  display: flex;
+  gap: var(--ref-spacing-xs);
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  border-top: 1px solid var(--ref-color-grey-20);
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.toolbar-left,
+.button-row {
+  display: flex;
+  gap: var(--ref-spacing-xs);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search {
+  position: relative;
+  width: min(100%, 420px);
+}
+
+.search input {
+  width: 100%;
+  color: var(--ref-color-grey-150);
+  height: 36px;
+  padding: 0 var(--ref-spacing-xs) 0 36px;
+  border: 1px solid var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-md);
+  background: var(--ref-color-white);
+  box-shadow: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--ref-spacing-xs);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ref-color-grey-60);
+}
+
+.segmented {
+  display: inline-flex;
+  padding: var(--ref-spacing-xxxs);
+  border-radius: var(--ref-radius-md);
+  background: var(--ref-color-grey-05);
+  border: 1px solid var(--ref-color-grey-20);
+}
+
+.segmented button {
+  border: 0;
+  background: transparent;
+  color: var(--sys-text-color-light);
+  border-radius: var(--ref-radius-sm);
+  padding: 6px var(--ref-spacing-xs);
+  cursor: pointer;
+  font-weight: var(--ref-font-weight-bold);
+}
+
+.segmented button.active {
+  background: var(--ref-color-white);
+  color: var(--ref-color-grey-150);
+  box-shadow: none;
+}
+
+.state-banner,
+.idea-intro,
+.selection-bar {
+  border-radius: var(--ref-radius-lg);
+  padding: var(--ref-spacing-xs);
+}
+
+.state-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ref-spacing-xs);
+  align-items: center;
+  margin-bottom: var(--ref-spacing-xxs);
+}
+
+.state-banner.processing {
+  background: var(--ref-color-electric-blue-10);
+  border: 1px solid var(--ref-color-electric-blue-20);
+}
+
+.state-banner.failed {
+  background: var(--ref-color-red-10);
+  border: 1px solid var(--ref-color-red-20);
+}
+
+.state-copy h4 {
+  font-size: var(--ref-font-size-sm);
+  color: var(--ref-color-grey-150);
+}
+
+.state-copy p {
+  margin-top: 4px;
+  font-size: var(--ref-font-size-sm);
+  line-height: var(--ref-font-line-height-md);
+  color: var(--sys-text-color-light);
+}
+
+.empty-state {
+  padding: var(--ref-spacing-xl) var(--ref-spacing-md);
+  text-align: center;
+}
+
+.empty-state .ap-button {
+  margin-inline: auto;
+  margin-top: var(--ref-spacing-sm);
+}
+
+.demo-block {
+  margin-top: 28px;
+}
+
+.demo-block h2 {
+  margin-bottom: var(--ref-spacing-xs);
+  color: var(--ref-color-grey-150);
+  font-size: var(--ref-font-size-lg);
+}
+
+.skeleton {
+  border: 1px solid var(--ref-color-grey-20);
+  border-radius: var(--ref-radius-lg);
+  padding: var(--ref-spacing-sm);
+  background: var(--ref-color-white);
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: var(--ref-radius-full);
+  background: linear-gradient(90deg, #eceff3 25%, #f6f8fb 50%, #eceff3 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.2s linear infinite;
+  margin-top: 10px;
+}
+
+/* ── Inline SVG icon wrapper (used by sparklesMermaid) ── */
+
+.agp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.agp-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* ── Checkbox (idea + post selection) ── */
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}

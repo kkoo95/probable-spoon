@@ -123,7 +123,7 @@ const STYLES = `
     gap: 4px;
   }
 
-  .schedule-row__best-time .agp-icon {
+  .schedule-row__best-time [class^="ap-icon-"] {
     width: 12px;
     height: 12px;
     min-width: 12px;
@@ -188,9 +188,9 @@ const STYLES = `
 `;
 
 function injectStyles() {
-  if (document.getElementById('schedule-modal-styles')) return;
-  const style = document.createElement('style');
-  style.id = 'schedule-modal-styles';
+  if (document.getElementById("schedule-modal-styles")) return;
+  const style = document.createElement("style");
+  style.id = "schedule-modal-styles";
   style.textContent = STYLES;
   document.head.appendChild(style);
 }
@@ -200,10 +200,10 @@ function injectStyles() {
 // ---------------------------------------------------------------------------
 
 const PLATFORM_LABELS = {
-  linkedin:  'LinkedIn',
-  twitter:   'X / Twitter',
-  facebook:  'Facebook',
-  instagram: 'Instagram',
+  linkedin: "LinkedIn",
+  twitter: "X / Twitter",
+  facebook: "Facebook",
+  instagram: "Instagram",
 };
 
 /**
@@ -214,17 +214,18 @@ const PLATFORM_LABELS = {
  * @param {string} postId
  * @returns {Promise<{ date: string, time: string }>} ISO date (YYYY-MM-DD) + HH:MM
  */
-async function getBestTime(postId) { // eslint-disable-line no-unused-vars
+async function getBestTime(postId) {
+  // eslint-disable-line no-unused-vars
   await new Promise((r) => setTimeout(r, 600));
   // Pick next business day
   const d = new Date();
   d.setDate(d.getDate() + 1);
   if (d.getDay() === 0) d.setDate(d.getDate() + 1); // Sunday → Monday
   if (d.getDay() === 6) d.setDate(d.getDate() + 2); // Saturday → Monday
-  const SLOTS = ['09:00', '10:00', '11:00', '14:00', '15:30', '17:00'];
+  const SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:30", "17:00"];
   const time = SLOTS[Math.floor(Math.random() * SLOTS.length)];
   return {
-    date: d.toISOString().split('T')[0],
+    date: d.toISOString().split("T")[0],
     time,
   };
 }
@@ -234,9 +235,9 @@ function buildTimeOptions() {
   const opts = [];
   for (let h = 0; h < 24; h++) {
     for (let m = 0; m < 60; m += 15) {
-      const hh = String(h).padStart(2, '0');
-      const mm = String(m).padStart(2, '0');
-      const period = h < 12 ? 'AM' : 'PM';
+      const hh = String(h).padStart(2, "0");
+      const mm = String(m).padStart(2, "0");
+      const period = h < 12 ? "AM" : "PM";
       const h12 = h === 0 ? 12 : h > 12 ? h - 12 : h;
       opts.push({ value: `${hh}:${mm}`, label: `${h12}:${mm} ${period}` });
     }
@@ -250,23 +251,19 @@ function getTimezoneLabel() {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const offset = -new Date().getTimezoneOffset();
-    const sign = offset >= 0 ? '+' : '-';
+    const sign = offset >= 0 ? "+" : "-";
     const abs = Math.abs(offset);
-    const h = String(Math.floor(abs / 60)).padStart(2, '0');
-    const m = String(abs % 60).padStart(2, '0');
-    const city = tz.split('/').pop().replace(/_/g, ' ');
+    const h = String(Math.floor(abs / 60)).padStart(2, "0");
+    const m = String(abs % 60).padStart(2, "0");
+    const city = tz.split("/").pop().replace(/_/g, " ");
     return `${city} (UTC${sign}${h}:${m})`;
   } catch {
-    return 'Local time';
+    return "Local time";
   }
 }
 
-function escapeHtml(s = '') {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+function escapeHtml(s = "") {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 // ---------------------------------------------------------------------------
@@ -304,9 +301,9 @@ function platformBadgeHtml(platform) {
 
 function postRowHtml(post) {
   const s = getPostState(post.id);
-  const timeOpts = TIME_OPTIONS.map((o) =>
-    `<option value="${o.value}"${s.time === o.value ? ' selected' : ''}>${o.label}</option>`,
-  ).join('');
+  const timeOpts = TIME_OPTIONS.map(
+    (o) => `<option value="${o.value}"${s.time === o.value ? " selected" : ""}>${o.label}</option>`,
+  ).join("");
 
   const bestTimeBtn = s.loading
     ? `<button type="button" class="ap-button stroked grey schedule-row__best-time is-loading" data-best-time="${escapeHtml(post.id)}" disabled>
@@ -314,7 +311,7 @@ function postRowHtml(post) {
         Finding…
        </button>`
     : `<button type="button" class="ap-button stroked grey schedule-row__best-time" data-best-time="${escapeHtml(post.id)}">
-        <span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-sparkles"/></svg></span>
+        <i class="ap-icon-sparkles"></i>
         Best time
        </button>`;
 
@@ -326,24 +323,25 @@ function postRowHtml(post) {
         ${bestTimeBtn}
       </div>
       <div class="schedule-row__fields">
-        <div class="ap-field schedule-row__date-field">
+        <div class="ap-form-field schedule-row__date-field">
           <label for="sched-date-${escapeHtml(post.id)}">Date</label>
-          <input
-            class="ap-input"
-            type="date"
-            id="sched-date-${escapeHtml(post.id)}"
-            data-sched-date="${escapeHtml(post.id)}"
-            value="${escapeHtml(s.date || '')}"
-          />
+          <div class="ap-input-group">
+            <input
+              type="date"
+              id="sched-date-${escapeHtml(post.id)}"
+              data-sched-date="${escapeHtml(post.id)}"
+              value="${escapeHtml(s.date || "")}"
+            />
+          </div>
         </div>
-        <div class="ap-field schedule-row__time-field">
+        <div class="ap-form-field schedule-row__time-field">
           <label for="sched-time-${escapeHtml(post.id)}">Time</label>
           <select
-            class="ap-select"
+            class="ap-native-select"
             id="sched-time-${escapeHtml(post.id)}"
             data-sched-time="${escapeHtml(post.id)}"
           >
-            <option value="" disabled${!s.time ? ' selected' : ''}>— select —</option>
+            <option value="" disabled${!s.time ? " selected" : ""}>— select —</option>
             ${timeOpts}
           </select>
         </div>
@@ -362,13 +360,13 @@ function rerenderRow(postId) {
   if (!post) return;
   const el = document.querySelector(`.schedule-row[data-post-id="${CSS.escape(postId)}"]`);
   if (!el) return;
-  const tmp = document.createElement('div');
+  const tmp = document.createElement("div");
   tmp.innerHTML = postRowHtml(post);
   el.replaceWith(tmp.firstElementChild);
 }
 
 function refreshSubmitState() {
-  const btn = document.getElementById('scheduleModalSubmit');
+  const btn = document.getElementById("scheduleModalSubmit");
   if (!btn) return;
   const allSet = _posts.every((p) => {
     const s = getPostState(p.id);
@@ -388,14 +386,14 @@ function buildModalHtml() {
       <p class="ap-dialog-description" id="scheduleModalDesc"></p>
     </div>
     <button class="ap-dialog-close" type="button" id="scheduleModalClose" aria-label="Close">
-      <span class="agp-icon"><svg viewBox="0 0 16 16"><use href="#icon-close"/></svg></span>
+      <i class="ap-icon-close"></i>
     </button>
     <div class="ap-dialog-content" id="scheduleModalBody"></div>
     <div class="ap-dialog-footer">
       <div class="ap-dialog-footer-right">
         <button type="button" class="ap-button ghost grey" id="scheduleModalCancel">Cancel</button>
         <button type="button" class="ap-button primary orange" id="scheduleModalSubmit" disabled>
-          <span class="agp-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><use href="#icon-calendar"/></svg></span>
+          <i class="ap-icon-calendar"></i>
           Schedule
         </button>
       </div>
@@ -406,21 +404,21 @@ function buildModalHtml() {
 let _bound = false;
 
 function ensureModal() {
-  if (document.getElementById('scheduleModal')) return;
+  if (document.getElementById("scheduleModal")) return;
 
   injectStyles();
 
-  const backdrop = document.createElement('div');
-  backdrop.className = 'modal-backdrop';
-  backdrop.id = 'scheduleModalBackdrop';
+  const backdrop = document.createElement("div");
+  backdrop.className = "modal-backdrop";
+  backdrop.id = "scheduleModalBackdrop";
 
-  const modal = document.createElement('aside');
-  modal.className = 'ap-dialog schedule-modal';
-  modal.id = 'scheduleModal';
-  modal.setAttribute('role', 'dialog');
-  modal.setAttribute('aria-modal', 'true');
-  modal.setAttribute('aria-labelledby', 'scheduleModalTitle');
-  modal.setAttribute('aria-hidden', 'true');
+  const modal = document.createElement("aside");
+  modal.className = "ap-dialog schedule-modal";
+  modal.id = "scheduleModal";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", "scheduleModalTitle");
+  modal.setAttribute("aria-hidden", "true");
   modal.innerHTML = buildModalHtml();
 
   document.body.append(backdrop, modal);
@@ -429,19 +427,19 @@ function ensureModal() {
 }
 
 function attachEvents() {
-  const modal = document.getElementById('scheduleModal');
-  const backdrop = document.getElementById('scheduleModalBackdrop');
+  const modal = document.getElementById("scheduleModal");
+  const backdrop = document.getElementById("scheduleModalBackdrop");
 
   // Close triggers
-  document.getElementById('scheduleModalClose').addEventListener('click', closeModal);
-  document.getElementById('scheduleModalCancel').addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  document.getElementById("scheduleModalClose").addEventListener("click", closeModal);
+  document.getElementById("scheduleModalCancel").addEventListener("click", closeModal);
+  backdrop.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
   });
 
   // Field changes
-  modal.addEventListener('change', (e) => {
+  modal.addEventListener("change", (e) => {
     const dateFor = e.target.dataset.schedDate;
     const timeFor = e.target.dataset.schedTime;
     if (dateFor) {
@@ -455,8 +453,8 @@ function attachEvents() {
   });
 
   // Best time
-  modal.addEventListener('click', async (e) => {
-    const btn = e.target.closest('[data-best-time]');
+  modal.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-best-time]");
     if (!btn || btn.disabled) return;
     const postId = btn.dataset.bestTime;
     setPostState(postId, { loading: true });
@@ -472,7 +470,7 @@ function attachEvents() {
   });
 
   // Confirm
-  document.getElementById('scheduleModalSubmit').addEventListener('click', () => {
+  document.getElementById("scheduleModalSubmit").addEventListener("click", () => {
     const results = _posts
       .map((p) => {
         const s = getPostState(p.id);
@@ -480,7 +478,7 @@ function attachEvents() {
       })
       .filter((r) => r.date && r.time);
 
-    if (typeof _onConfirm === 'function') _onConfirm(results);
+    if (typeof _onConfirm === "function") _onConfirm(results);
     closeModal();
   });
 }
@@ -490,19 +488,19 @@ function openModal(posts, onConfirm) {
   _postStates = [];
   _onConfirm = onConfirm || null;
 
-  const body = document.getElementById('scheduleModalBody');
-  const desc = document.getElementById('scheduleModalDesc');
-  const modal = document.getElementById('scheduleModal');
-  const backdrop = document.getElementById('scheduleModalBackdrop');
+  const body = document.getElementById("scheduleModalBody");
+  const desc = document.getElementById("scheduleModalDesc");
+  const modal = document.getElementById("scheduleModal");
+  const backdrop = document.getElementById("scheduleModalBackdrop");
 
-  desc.textContent = posts.length > 1 ? 'Set a date and time for each post.' : '';
-  body.innerHTML = posts.map(postRowHtml).join('');
+  desc.textContent = posts.length > 1 ? "Set a date and time for each post." : "";
+  body.innerHTML = posts.map(postRowHtml).join("");
 
   refreshSubmitState();
 
-  modal.setAttribute('aria-hidden', 'false');
-  modal.classList.add('open');
-  backdrop.classList.add('open');
+  modal.setAttribute("aria-hidden", "false");
+  modal.classList.add("open");
+  backdrop.classList.add("open");
 
   // Focus first date input
   const firstDate = body.querySelector('input[type="date"]');
@@ -510,12 +508,12 @@ function openModal(posts, onConfirm) {
 }
 
 function closeModal() {
-  const modal = document.getElementById('scheduleModal');
-  const backdrop = document.getElementById('scheduleModalBackdrop');
+  const modal = document.getElementById("scheduleModal");
+  const backdrop = document.getElementById("scheduleModalBackdrop");
   if (!modal) return;
-  modal.setAttribute('aria-hidden', 'true');
-  modal.classList.remove('open');
-  backdrop.classList.remove('open');
+  modal.setAttribute("aria-hidden", "true");
+  modal.classList.remove("open");
+  backdrop.classList.remove("open");
   _onConfirm = null;
 }
 
