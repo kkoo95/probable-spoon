@@ -1,4 +1,4 @@
-import { createStore } from "https://esm.sh/zustand@5/vanilla?bundle";
+import { createStore } from "../vendor/zustand-vanilla.js";
 
 import {
   buildMockPostDraft,
